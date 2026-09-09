@@ -7,25 +7,74 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js">
     </script>
     <style>
-        /* ===== БАЗОВЫЕ СТИЛИ ===== */
+        /* ================================================================
+           СТИЛИ БИ ЕМИАС (из theme_material_all_1.css)
+           ================================================================ */
+        :root {
+            /* Основные цвета БИ ЕМИАС */
+            --base-color: #536371;
+            --base-highlight-color: #7a8fa5;
+            --base-light-color: #c8d4e0;
+            --base-dark-color: #3a4a5a;
+            --base-pressed-color: #6a7f95;
+            --base-invisible-color: rgba(83, 99, 113, 0);
+            --base-foreground-color: #ffffff;
+
+            --accent-color: #e88a2a;
+            --accent-light-color: #f5d6a8;
+            --accent-dark-color: #c9701a;
+            --accent-pressed-color: #f0a84a;
+            --accent-foreground-color: #222222;
+
+            --confirm-color: #558B2F;
+            --confirm-pressed-color: #689F38;
+            --alert-color: #c62828;
+            --alert-pressed-color: #de5c5c;
+
+            --color: #2a3a4a;
+            --highlight-color: rgba(42, 58, 74, 0.54);
+            --disabled-color: rgba(42, 58, 74, 0.38);
+            --divider-color: #dde4eb;
+            --selected-background-color: #e0e6ed;
+            --hovered-background-color: #eef2f7;
+            --header-background-color: #f0f4f8;
+            --reverse-color: #ffffff;
+            --reverse-disabled-color: rgba(255, 255, 255, 0.38);
+            --background-color: #f5f8fa;
+            --alt-background-color: #eef2f7;
+            --reverse-background-color: #2a3a4a;
+            --reverse-alt-background-color: #3a4a5a;
+            --faded-color: #dde4eb;
+            --overlay-color: rgba(0, 0, 0, 0.03);
+            --content-padding: 16px;
+            --listitem-selected-background-color: #e0e6ed;
+            --static-toolbar-color: #2a3a4a;
+        }
+
+        /* ===== БАЗОВЫЕ СТИЛИ (из theme_material_all_1.css) ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', 'Roboto', system-ui, sans-serif;
         }
+
         body {
-            background: #eef2f7;
+            font-family: 'Roboto', 'Segoe UI', system-ui, sans-serif;
+            background: var(--background-color);
+            color: var(--color);
             padding: 20px 24px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
+
         .dashboard {
             max-width: 1440px;
             margin: 0 auto;
         }
 
-        /* ===== ЗАГОЛОВОК ===== */
+        /* ===== ЗАГОЛОВОК (как в БИ ЕМИАС) ===== */
         .header {
-            background: #0a2647;
+            background: var(--base-color);
             border-radius: 16px;
             padding: 18px 28px;
             display: flex;
@@ -33,17 +82,18 @@
             align-items: center;
             flex-wrap: wrap;
             margin-bottom: 24px;
-            box-shadow: 0 4px 20px rgba(10, 38, 71, 0.25);
+            box-shadow: 0 4px 20px rgba(42, 58, 74, 0.25);
         }
         .header h1 {
-            color: #fff;
+            color: var(--base-foreground-color);
             font-size: 22px;
-            font-weight: 700;
+            font-weight: 600;
+            font-family: 'Roboto', sans-serif;
         }
         .header h1 span {
             font-weight: 400;
             font-size: 16px;
-            color: #8eb2e0;
+            color: var(--base-light-color);
         }
         .header .filters {
             display: flex;
@@ -56,57 +106,59 @@
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 30px;
             padding: 8px 18px;
-            color: #fff;
+            color: var(--base-foreground-color);
             font-size: 13px;
             outline: none;
             cursor: pointer;
+            font-family: 'Roboto', sans-serif;
         }
-                .header .filters select option {
-            background: #ffffff;
-            color: #0a2647;
-            padding: 4px 12px;
+        .header .filters select option {
+            background: var(--base-color);
+            color: var(--base-foreground-color);
         }
         .header .period {
-            color: #8eb2e0;
+            color: var(--base-light-color);
             font-size: 13px;
             padding: 6px 18px;
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 30px;
         }
 
-        /* ===== КАРТОЧКИ ===== */
+        /* ===== КАРТОЧКИ (Material Design) ===== */
         .card {
-            background: #ffffff;
+            background: var(--base-foreground-color);
             border-radius: 16px;
             padding: 20px 24px 24px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
             margin-bottom: 20px;
+            border: 1px solid var(--faded-color);
         }
         .card-title {
             font-size: 17px;
-            font-weight: 700;
-            color: #0a2647;
+            font-weight: 600;
+            color: var(--color);
             margin-bottom: 14px;
             padding-bottom: 8px;
-            border-bottom: 2px solid #e8eef6;
+            border-bottom: 2px solid var(--divider-color);
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            font-family: 'Roboto', sans-serif;
         }
         .card-title .cp-label {
             font-size: 13px;
             font-weight: 400;
-            color: #5a7a9a;
-            background: #f0f4fa;
+            color: var(--highlight-color);
+            background: var(--alt-background-color);
             padding: 2px 14px;
             border-radius: 30px;
         }
         .card-title .cp-label strong {
-            color: #0a2647;
+            color: var(--color);
         }
 
-        /* ===== KPI СЕТКА (7 карточек) ===== */
+        /* ===== KPI КАРТОЧКИ ===== */
         .kpi-grid-7 {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
@@ -114,30 +166,34 @@
             margin-bottom: 16px;
         }
         .kpi-card {
-            background: #fff;
+            background: var(--base-foreground-color);
             border-radius: 12px;
             padding: 12px 12px 10px;
             box-shadow: 0 1px 6px rgba(0, 0, 0, 0.02);
-            border-left: 4px solid #2a6bb0;
-            border-bottom: 1px solid #f0f4fa;
+            border-left: 4px solid var(--base-color);
+            border-bottom: 1px solid var(--divider-color);
+            transition: box-shadow 0.15s ease;
+        }
+        .kpi-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
         }
         .kpi-card .label {
             font-size: 10px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.3px;
-            color: #7a8da0;
+            color: var(--highlight-color);
             line-height: 1.2;
         }
         .kpi-card .value {
             font-size: 22px;
             font-weight: 700;
-            color: #0a2647;
+            color: var(--color);
             line-height: 1.2;
         }
         .kpi-card .sub {
             font-size: 11px;
-            color: #5a6f86;
+            color: var(--highlight-color);
         }
         .kpi-card .badge {
             display: inline-block;
@@ -164,13 +220,13 @@
             color: #1a5ca8;
         }
         .kpi-card.accent-yellow {
-            border-left-color: #e6a200;
+            border-left-color: var(--accent-color);
         }
         .kpi-card.accent-green {
-            border-left-color: #1d9e4a;
+            border-left-color: var(--confirm-color);
         }
         .kpi-card.accent-red {
-            border-left-color: #d94a4a;
+            border-left-color: var(--alert-color);
         }
         .kpi-card.accent-purple {
             border-left-color: #7c54b0;
@@ -179,7 +235,7 @@
             border-left-color: #1e8f8f;
         }
         .kpi-card.accent-orange {
-            border-left-color: #e67e22;
+            border-left-color: var(--accent-color);
         }
 
         /* ===== ДВЕ КОЛОНКИ ===== */
@@ -198,8 +254,11 @@
         .chart-container.tall {
             height: 220px;
         }
+        .chart-container canvas {
+            border-radius: 8px;
+        }
 
-        /* ===== ГРУППЫ РИСКА – ТАБЛИЦЫ С ПРОГРЕСС-БАРАМИ ===== */
+        /* ===== ГРУППЫ РИСКА ===== */
         .risk-section {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -207,27 +266,28 @@
             margin-top: 8px;
         }
         .risk-block {
-            background: #f8faff;
+            background: var(--alt-background-color);
             border-radius: 14px;
             padding: 16px 18px 18px;
-            border: 1px solid #e8eef6;
+            border: 1px solid var(--divider-color);
         }
         .risk-block h4 {
             font-size: 15px;
-            font-weight: 700;
-            color: #0a2647;
+            font-weight: 600;
+            color: var(--color);
             margin-bottom: 12px;
             padding-bottom: 6px;
-            border-bottom: 2px solid #dde5ef;
+            border-bottom: 2px solid var(--divider-color);
             text-align: center;
+            font-family: 'Roboto', sans-serif;
         }
         .risk-block .sub-title {
             font-size: 12px;
             font-weight: 600;
-            color: #1a4a7a;
+            color: var(--base-dark-color);
             margin: 10px 0 4px;
             padding-bottom: 2px;
-            border-bottom: 1px dashed #dde5ef;
+            border-bottom: 1px dashed var(--divider-color);
         }
         .risk-row {
             display: flex;
@@ -235,18 +295,18 @@
             gap: 8px;
             padding: 4px 0;
             font-size: 12px;
-            border-bottom: 1px solid #eef3f9;
+            border-bottom: 1px solid var(--divider-color);
         }
         .risk-row .r-label {
             flex: 1;
-            color: #1e3d5e;
+            color: var(--color);
             font-weight: 500;
             font-size: 11px;
         }
         .risk-row .r-bar-bg {
             width: 80px;
             height: 14px;
-            background: #e8eef6;
+            background: var(--divider-color);
             border-radius: 8px;
             overflow: hidden;
             flex-shrink: 0;
@@ -254,29 +314,29 @@
         .risk-row .r-bar-fill {
             height: 100%;
             border-radius: 8px;
-            background: linear-gradient(90deg, #2a6bb0, #5b9cf5);
+            background: var(--base-color);
             transition: width 0.3s;
         }
         .risk-row .r-bar-fill.green {
-            background: linear-gradient(90deg, #1d9e4a, #4ecb7a);
+            background: var(--confirm-color);
         }
         .risk-row .r-bar-fill.yellow {
-            background: linear-gradient(90deg, #e6a200, #f5c542);
+            background: var(--accent-color);
         }
         .risk-row .r-bar-fill.red {
-            background: linear-gradient(90deg, #d94a4a, #f07575);
+            background: var(--alert-color);
         }
         .risk-row .r-pct {
             font-weight: 600;
             font-size: 12px;
-            color: #0a2647;
+            color: var(--color);
             min-width: 40px;
             text-align: right;
         }
         .risk-total {
             font-weight: 700;
-            color: #0a2647;
-            border-top: 2px solid #dde5ef;
+            color: var(--color);
+            border-top: 2px solid var(--divider-color);
             padding-top: 6px;
             margin-top: 6px;
             font-size: 13px;
@@ -289,43 +349,43 @@
         }
         .funnel-group .funnel-title {
             font-weight: 600;
-            color: #1a3a6b;
+            color: var(--base-dark-color);
             font-size: 14px;
             margin-bottom: 4px;
             padding-left: 12px;
-            border-left: 4px solid #2a6bb0;
+            border-left: 4px solid var(--base-color);
         }
         .funnel-group .funnel-title.adult {
-            border-left-color: #d94a4a;
+            border-left-color: var(--alert-color);
         }
         .funnel-group .funnel-title.child {
-            border-left-color: #1d9e4a;
+            border-left-color: var(--confirm-color);
         }
         .funnel-item {
             display: flex;
             justify-content: space-between;
             padding: 5px 0 5px 12px;
-            border-bottom: 1px solid #f0f4fa;
+            border-bottom: 1px solid var(--divider-color);
             font-size: 13px;
         }
         .funnel-item .f-label {
-            color: #2a4a6a;
+            color: var(--color);
         }
         .funnel-item .f-value {
             font-weight: 600;
-            color: #0a2647;
+            color: var(--color);
         }
         .funnel-item .f-pct {
-            color: #5a7a9a;
+            color: var(--highlight-color);
             font-weight: 500;
             min-width: 55px;
             text-align: right;
         }
         .funnel-item.highlight {
-            border-bottom: 2px solid #d94a4a;
+            border-bottom: 2px solid var(--alert-color);
         }
         .funnel-item.highlight-green {
-            border-bottom: 2px solid #1d9e4a;
+            border-bottom: 2px solid var(--confirm-color);
         }
         .funnel-note {
             font-size: 12px;
@@ -354,16 +414,16 @@
             display: flex;
             justify-content: space-between;
             padding: 4px 0;
-            border-bottom: 1px dashed #edf2f8;
+            border-bottom: 1px dashed var(--divider-color);
         }
         .eval-item .crit {
-            color: #1e3d5e;
+            color: var(--color);
         }
         .eval-item .val {
             font-weight: 600;
         }
         .grade-block {
-            background: linear-gradient(135deg, #f0f6fe, #e3edfb);
+            background: var(--alt-background-color);
             border-radius: 14px;
             padding: 14px 24px;
             display: flex;
@@ -371,14 +431,15 @@
             align-items: center;
             flex-wrap: wrap;
             margin-top: 14px;
+            border: 1px solid var(--divider-color);
         }
         .grade-block .grade-text {
             font-size: 20px;
             font-weight: 700;
-            color: #0a2647;
+            color: var(--color);
         }
         .grade-block .grade-rec {
-            color: #1a4a7a;
+            color: var(--base-dark-color);
             font-size: 14px;
             max-width: 60%;
         }
@@ -388,8 +449,8 @@
             margin-top: 16px;
             text-align: center;
             font-size: 12px;
-            color: #6a7f98;
-            border-top: 1px solid #dde5ef;
+            color: var(--highlight-color);
+            border-top: 1px solid var(--divider-color);
             padding-top: 14px;
         }
 
@@ -401,7 +462,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(10, 38, 71, 0.6);
+            background: rgba(42, 58, 74, 0.6);
             backdrop-filter: blur(4px);
             z-index: 1000;
             justify-content: center;
@@ -411,9 +472,9 @@
             display: flex;
         }
         .modal-box {
-            background: white;
+            background: var(--base-foreground-color);
             border-radius: 20px;
-            max-width: 600px;
+            max-width: 500px;
             width: 90%;
             padding: 30px 32px 24px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -428,97 +489,145 @@
             background: none;
             border: none;
             font-size: 28px;
-            color: #7a8da0;
+            color: var(--highlight-color);
             cursor: pointer;
             transition: 0.15s;
             line-height: 1;
         }
         .modal-close:hover {
-            color: #0a2647;
+            color: var(--color);
         }
         .modal-title {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
-            color: #0a2647;
+            color: var(--color);
             margin-bottom: 4px;
         }
         .modal-title span {
-            color: #2a6bb0;
+            color: var(--base-color);
         }
-        .modal-sub {
-            font-size: 14px;
-            color: #5a7a9a;
-            margin-bottom: 16px;
-            border-bottom: 1px solid #e8eef6;
-            padding-bottom: 12px;
-        }
-        .modal-body {
+        .modal-body-text {
             font-size: 15px;
-            color: #1a3a6b;
+            color: var(--color);
+            padding: 12px 0;
             line-height: 1.6;
-        }
-        .modal-body ul {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 16px 0;
-        }
-        .modal-body ul li {
-            padding: 6px 0 6px 24px;
-            border-bottom: 1px solid #f0f4fa;
-            background: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%222a6bb0%22 stroke-width=%222%22><polyline points=%2220 6 9 17 4 12%22/></svg>') left center no-repeat;
-            background-size: 16px;
-        }
-        .modal-hint {
-            background: #f0f6fe;
-            border-radius: 12px;
-            padding: 12px 16px;
-            font-size: 14px;
-            color: #1a4a7a;
-            border-left: 4px solid #2a6bb0;
         }
         .modal-footer-btns {
             display: flex;
             gap: 12px;
-            margin-top: 18px;
-            padding-top: 14px;
-            border-top: 1px solid #e8eef6;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--divider-color);
             flex-wrap: wrap;
         }
-        .modal-footer-btns button {
+        .btn-close {
+            flex: 1;
+            background: var(--alt-background-color);
             border: none;
             border-radius: 10px;
             padding: 10px 18px;
             font-size: 14px;
             font-weight: 600;
+            color: var(--color);
             cursor: pointer;
             transition: 0.15s;
-        }
-        .btn-close {
-            flex: 1;
-            background: #e8eef6;
-            color: #1a3a6b;
             min-width: 120px;
         }
         .btn-close:hover {
-            background: #d5dfeb;
+            background: var(--divider-color);
         }
         .btn-open {
             flex: 2;
-            background: #0a2647;
-            color: white;
+            background: var(--base-color);
+            border: none;
+            border-radius: 10px;
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--base-foreground-color);
+            cursor: pointer;
+            transition: 0.15s;
             min-width: 160px;
         }
         .btn-open:hover {
-            background: #1a3a6b;
+            background: var(--base-dark-color);
         }
         .modal-dev-hint {
             margin-top: 12px;
             font-size: 12px;
-            color: #7a8da0;
-            background: #f8faff;
+            color: var(--highlight-color);
+            background: var(--alt-background-color);
             border-radius: 8px;
             padding: 8px 12px;
-            border: 1px dashed #dde5ef;
+            border: 1px dashed var(--divider-color);
+        }
+
+        /* ===== КАРТОЧКИ ПОЛИКЛИНИК (Material Design) ===== */
+        .polyclinic-card {
+            background: var(--base-foreground-color);
+            border-radius: 12px;
+            padding: 14px 16px;
+            border-left: 4px solid var(--base-color);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.15s ease;
+        }
+        .polyclinic-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+        .polyclinic-card .name {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--color);
+        }
+        .polyclinic-card .name .type {
+            font-weight: 400;
+            font-size: 11px;
+            color: var(--highlight-color);
+        }
+        .polyclinic-card .attached {
+            font-size: 12px;
+            color: var(--highlight-color);
+            margin: 2px 0 6px;
+        }
+        .polyclinic-card .cp-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 2px;
+            flex-wrap: nowrap;
+        }
+        .polyclinic-card .cp-row .cp-label {
+            font-size: 10px;
+            font-weight: 500;
+            color: var(--color);
+            min-width: 70px;
+            flex-shrink: 0;
+        }
+        .polyclinic-card .cp-row .cp-bar {
+            flex: 1;
+            min-width: 40px;
+            height: 8px;
+            background: var(--divider-color);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .polyclinic-card .cp-row .cp-bar .cp-fill {
+            height: 100%;
+            border-radius: 6px;
+        }
+        .polyclinic-card .cp-row .cp-pct {
+            font-weight: 600;
+            font-size: 12px;
+            color: var(--color);
+            min-width: 35px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .polyclinic-card .status-text {
+            font-size: 11px;
+            margin-top: 4px;
         }
 
         /* ===== АДАПТИВ ===== */
@@ -555,6 +664,9 @@
                 max-width: 100%;
                 margin-top: 6px;
             }
+            .polyclinic-grid {
+                grid-template-columns: 1fr 1fr !important;
+            }
         }
         @media (max-width: 500px) {
             .kpi-grid-7 {
@@ -563,13 +675,16 @@
             body {
                 padding: 12px;
             }
+            .polyclinic-grid {
+                grid-template-columns: 1fr !important;
+            }
         }
     </style>
 </head>
 <body>
     <div class="dashboard">
 
-                   <!-- ============================================================ -->
+        <!-- ============================================================ -->
         <!-- ЗАГОЛОВОК -->
         <!-- ============================================================ -->
         <div class="header">
@@ -582,209 +697,83 @@
                 <span class="period">Данные: 01.10.2026</span>
             </div>
         </div>
- <!-- ============================================================ -->
-        <!-- СТРУКТУРНЫЕ ПОДРАЗДЕЛЕНИЯ (ПОЛИКЛИНИКИ) С НЕСКОЛЬКИМИ ЦП -->
+
+        <!-- ============================================================ -->
+        <!-- СТРУКТУРНЫЕ ПОДРАЗДЕЛЕНИЯ (ПОЛИКЛИНИКИ) -->
         <!-- ============================================================ -->
         <div class="card" style="margin-bottom:16px; padding:16px 20px 18px;">
-            <div class="card-title" style="font-size:15px; margin-bottom:8px; border-bottom:1px solid #e8eef6; padding-bottom:6px;">
+            <div class="card-title" style="font-size:15px; margin-bottom:8px; border-bottom:1px solid var(--divider-color); padding-bottom:6px;">
                 🏥 Структурные подразделения (поликлиники)
-                <span style="font-size:12px; font-weight:400; color:#5a7a9a;">Целевые показатели на 01.10.2026</span>
+                <span style="font-size:12px; font-weight:400; color:var(--highlight-color);">Целевые показатели на 01.10.2026</span>
             </div>
-            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px;">
+            <div class="polyclinic-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px;">
 
-                <!-- ========== ПОЛИКЛИНИКА №1 (ВЗРОСЛАЯ) ========== -->
-                <div style="background:#f8faff; border-radius:12px; padding:14px 16px; border-left:4px solid #2a6bb0; display:flex; flex-direction:column;">
-                    <div style="font-weight:600; font-size:14px; color:#0a2647;">Поликлиника №1 <span style="font-weight:400; font-size:11px; color:#2a6bb0;">(взрослая)</span></div>
-                    <div style="font-size:12px; color:#5a7a9a; margin:2px 0 6px;">прикреплено 42 500 чел. (15+)</div>
-
-                    <!-- ФЛГ (ЦП 68,2%) – ЖЕЛТЫЙ -->
-                    <div style="display:flex; align-items:center; gap:6px; margin-top:4px; flex-wrap:nowrap;">
-                        <span style="font-size:10px; font-weight:500; color:#1e3d5e; min-width:70px; flex-shrink:0;">ФЛГ (ЦП 68,2%)</span>
-                        <div style="flex:1; min-width:40px; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:64%; background:#e6a200; border-radius:6px;"></div>
-                        </div>
-                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:35px; text-align:right; flex-shrink:0;">64%</span>
-                    </div>
-
-                    <!-- Сводный охват (ЦП 73,0%) – ЖЕЛТЫЙ -->
-                    <div style="display:flex; align-items:center; gap:6px; margin-top:2px; flex-wrap:nowrap;">
-                        <span style="font-size:10px; font-weight:500; color:#1e3d5e; min-width:70px; flex-shrink:0;">Сводный (ЦП 73,0%)</span>
-                        <div style="flex:1; min-width:40px; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:61%; background:#e6a200; border-radius:6px;"></div>
-                        </div>
-                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:35px; text-align:right; flex-shrink:0;">61%</span>
-                    </div>
-
-                    <!-- Группы риска (ЦП 95,0%) – ЖЕЛТЫЙ -->
-                    <div style="display:flex; align-items:center; gap:6px; margin-top:2px; flex-wrap:nowrap;">
-                        <span style="font-size:10px; font-weight:500; color:#1e3d5e; min-width:70px; flex-shrink:0;">Гр. риска (ЦП 95,0%)</span>
-                        <div style="flex:1; min-width:40px; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:92%; background:#e6a200; border-radius:6px;"></div>
-                        </div>
-                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:35px; text-align:right; flex-shrink:0;">92%</span>
-                    </div>
-
-                    <!-- Дообследование (ЦП 95,0%) – ЖЕЛТЫЙ -->
-                    <div style="display:flex; align-items:center; gap:6px; margin-top:2px; flex-wrap:nowrap;">
-                        <span style="font-size:10px; font-weight:500; color:#1e3d5e; min-width:70px; flex-shrink:0;">Дообсл. (ЦП 95,0%)</span>
-                        <div style="flex:1; min-width:40px; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:88%; background:#e6a200; border-radius:6px;"></div>
-                        </div>
-                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:35px; text-align:right; flex-shrink:0;">88%</span>
-                    </div>
-
-                    <button onclick="openReport('Поликлиника №1')" style="margin-top:10px; background:#0a2647; color:white; border:none; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; transition:0.15s; align-self:flex-start;">
+                <!-- Поликлиника №1 (ВЗРОСЛАЯ) -->
+                <div class="polyclinic-card" style="border-left-color:var(--base-color);">
+                    <div class="name">Поликлиника №1 <span class="type">(взрослая)</span></div>
+                    <div class="attached">прикреплено 42 500 чел. (15+)</div>
+                    <div class="cp-row"><span class="cp-label">ФЛГ (ЦП 68,2%)</span><div class="cp-bar"><div class="cp-fill" style="width:64%; background:var(--accent-color);"></div></div><span class="cp-pct">64%</span></div>
+                    <div class="cp-row"><span class="cp-label">Сводный (ЦП 73,0%)</span><div class="cp-bar"><div class="cp-fill" style="width:61%; background:var(--accent-color);"></div></div><span class="cp-pct">61%</span></div>
+                    <div class="cp-row"><span class="cp-label">Гр. риска (ЦП 95,0%)</span><div class="cp-bar"><div class="cp-fill" style="width:92%; background:var(--accent-color);"></div></div><span class="cp-pct">92%</span></div>
+                    <div class="cp-row"><span class="cp-label">Дообсл. (ЦП 95,0%)</span><div class="cp-bar"><div class="cp-fill" style="width:88%; background:var(--accent-color);"></div></div><span class="cp-pct">88%</span></div>
+                    <div class="status-text" style="color:var(--accent-color);">🟡 Требуется внимание</div>
+                    <button onclick="openReport('Поликлиника №1')" style="margin-top:10px; background:var(--base-color); color:var(--base-foreground-color); border:none; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; transition:0.15s; align-self:flex-start; font-family:'Roboto',sans-serif;">
                         📄 Подробнее
                     </button>
                 </div>
 
-                <!-- ========== ПОЛИКЛИНИКА №2 (ВЗРОСЛАЯ) ========== -->
-                <div style="background:#f8faff; border-radius:12px; padding:14px 16px; border-left:4px solid #1d9e4a; display:flex; flex-direction:column;">
-                    <div style="font-weight:600; font-size:14px; color:#0a2647;">Поликлиника №2 <span style="font-weight:400; font-size:11px; color:#1d9e4a;">(взрослая)</span></div>
-                    <div style="font-size:12px; color:#5a7a9a; margin:2px 0 6px;">прикреплено 38 200 чел. (15+)</div>
-
-                    <!-- ФЛГ (ЦП 68,2%) – ЗЕЛЕНЫЙ -->
-                    <div style="display:flex; align-items:center; gap:6px; margin-top:4px; flex-wrap:nowrap;">
-                        <span style="font-size:10px; font-weight:500; color:#1e3d5e; min-width:70px; flex-shrink:0;">ФЛГ (ЦП 68,2%)</span>
-                        <div style="flex:1; min-width:40px; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:71%; background:#1d9e4a; border-radius:6px;"></div>
-                        </div>
-                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:35px; text-align:right; flex-shrink:0;">71%</span>
-                    </div>
-
-                    <!-- Сводный охват (ЦП 73,0%) – ЖЕЛТЫЙ -->
-                    <div style="display:flex; align-items:center; gap:6px; margin-top:2px; flex-wrap:nowrap;">
-                        <span style="font-size:10px; font-weight:500; color:#1e3d5e; min-width:70px; flex-shrink:0;">Сводный (ЦП 73,0%)</span>
-                        <div style="flex:1; min-width:40px; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:68%; background:#e6a200; border-radius:6px;"></div>
-                        </div>
-                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:35px; text-align:right; flex-shrink:0;">68%</span>
-                    </div>
-
-                    <!-- Группы риска (ЦП 95,0%) – ЗЕЛЕНЫЙ -->
-                    <div style="display:flex; align-items:center; gap:6px; margin-top:2px; flex-wrap:nowrap;">
-                        <span style="font-size:10px; font-weight:500; color:#1e3d5e; min-width:70px; flex-shrink:0;">Гр. риска (ЦП 95,0%)</span>
-                        <div style="flex:1; min-width:40px; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:95%; background:#1d9e4a; border-radius:6px;"></div>
-                        </div>
-                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:35px; text-align:right; flex-shrink:0;">95%</span>
-                    </div>
-
-                    <!-- Дообследование (ЦП 95,0%) – ЖЕЛТЫЙ -->
-                    <div style="display:flex; align-items:center; gap:6px; margin-top:2px; flex-wrap:nowrap;">
-                        <span style="font-size:10px; font-weight:500; color:#1e3d5e; min-width:70px; flex-shrink:0;">Дообсл. (ЦП 95,0%)</span>
-                        <div style="flex:1; min-width:40px; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:93%; background:#e6a200; border-radius:6px;"></div>
-                        </div>
-                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:35px; text-align:right; flex-shrink:0;">93%</span>
-                    </div>
-
-                    <button onclick="openReport('Поликлиника №2')" style="margin-top:10px; background:#0a2647; color:white; border:none; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; transition:0.15s; align-self:flex-start;">
+                <!-- Поликлиника №2 (ВЗРОСЛАЯ) -->
+                <div class="polyclinic-card" style="border-left-color:var(--confirm-color);">
+                    <div class="name">Поликлиника №2 <span class="type">(взрослая)</span></div>
+                    <div class="attached">прикреплено 38 200 чел. (15+)</div>
+                    <div class="cp-row"><span class="cp-label">ФЛГ (ЦП 68,2%)</span><div class="cp-bar"><div class="cp-fill" style="width:71%; background:var(--confirm-color);"></div></div><span class="cp-pct">71%</span></div>
+                    <div class="cp-row"><span class="cp-label">Сводный (ЦП 73,0%)</span><div class="cp-bar"><div class="cp-fill" style="width:68%; background:var(--accent-color);"></div></div><span class="cp-pct">68%</span></div>
+                    <div class="cp-row"><span class="cp-label">Гр. риска (ЦП 95,0%)</span><div class="cp-bar"><div class="cp-fill" style="width:95%; background:var(--confirm-color);"></div></div><span class="cp-pct">95%</span></div>
+                    <div class="cp-row"><span class="cp-label">Дообсл. (ЦП 95,0%)</span><div class="cp-bar"><div class="cp-fill" style="width:93%; background:var(--accent-color);"></div></div><span class="cp-pct">93%</span></div>
+                    <div class="status-text" style="color:var(--confirm-color);">✅ ЦП выполнен</div>
+                    <button onclick="openReport('Поликлиника №2')" style="margin-top:10px; background:var(--base-color); color:var(--base-foreground-color); border:none; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; transition:0.15s; align-self:flex-start; font-family:'Roboto',sans-serif;">
                         📄 Подробнее
                     </button>
                 </div>
 
-                <!-- ========== ПОЛИКЛИНИКА №3 (ВЗРОСЛАЯ) ========== -->
-                <div style="background:#f8faff; border-radius:12px; padding:14px 16px; border-left:4px solid #d94a4a; display:flex; flex-direction:column;">
-                    <div style="font-weight:600; font-size:14px; color:#0a2647;">Поликлиника №3 <span style="font-weight:400; font-size:11px; color:#d94a4a;">(взрослая)</span></div>
-                    <div style="font-size:12px; color:#5a7a9a; margin:2px 0 6px;">прикреплено 39 300 чел. (15+)</div>
-
-                    <!-- ФЛГ (ЦП 68,2%) – КРАСНЫЙ -->
-                    <div style="display:flex; align-items:center; gap:6px; margin-top:4px; flex-wrap:nowrap;">
-                        <span style="font-size:10px; font-weight:500; color:#1e3d5e; min-width:70px; flex-shrink:0;">ФЛГ (ЦП 68,2%)</span>
-                        <div style="flex:1; min-width:40px; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:55%; background:#d94a4a; border-radius:6px;"></div>
-                        </div>
-                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:35px; text-align:right; flex-shrink:0;">55%</span>
-                    </div>
-
-                    <!-- Сводный охват (ЦП 73,0%) – КРАСНЫЙ -->
-                    <div style="display:flex; align-items:center; gap:6px; margin-top:2px; flex-wrap:nowrap;">
-                        <span style="font-size:10px; font-weight:500; color:#1e3d5e; min-width:70px; flex-shrink:0;">Сводный (ЦП 73,0%)</span>
-                        <div style="flex:1; min-width:40px; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:52%; background:#d94a4a; border-radius:6px;"></div>
-                        </div>
-                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:35px; text-align:right; flex-shrink:0;">52%</span>
-                    </div>
-
-                    <!-- Группы риска (ЦП 95,0%) – ЖЕЛТЫЙ -->
-                    <div style="display:flex; align-items:center; gap:6px; margin-top:2px; flex-wrap:nowrap;">
-                        <span style="font-size:10px; font-weight:500; color:#1e3d5e; min-width:70px; flex-shrink:0;">Гр. риска (ЦП 95,0%)</span>
-                        <div style="flex:1; min-width:40px; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:78%; background:#e6a200; border-radius:6px;"></div>
-                        </div>
-                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:35px; text-align:right; flex-shrink:0;">78%</span>
-                    </div>
-
-                    <!-- Дообследование (ЦП 95,0%) – КРАСНЫЙ -->
-                    <div style="display:flex; align-items:center; gap:6px; margin-top:2px; flex-wrap:nowrap;">
-                        <span style="font-size:10px; font-weight:500; color:#1e3d5e; min-width:70px; flex-shrink:0;">Дообсл. (ЦП 95,0%)</span>
-                        <div style="flex:1; min-width:40px; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:70%; background:#d94a4a; border-radius:6px;"></div>
-                        </div>
-                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:35px; text-align:right; flex-shrink:0;">70%</span>
-                    </div>
-
-                    <button onclick="openReport('Поликлиника №3')" style="margin-top:10px; background:#0a2647; color:white; border:none; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; transition:0.15s; align-self:flex-start;">
+                <!-- Поликлиника №3 (ВЗРОСЛАЯ) -->
+                <div class="polyclinic-card" style="border-left-color:var(--alert-color);">
+                    <div class="name">Поликлиника №3 <span class="type">(взрослая)</span></div>
+                    <div class="attached">прикреплено 39 300 чел. (15+)</div>
+                    <div class="cp-row"><span class="cp-label">ФЛГ (ЦП 68,2%)</span><div class="cp-bar"><div class="cp-fill" style="width:55%; background:var(--alert-color);"></div></div><span class="cp-pct">55%</span></div>
+                    <div class="cp-row"><span class="cp-label">Сводный (ЦП 73,0%)</span><div class="cp-bar"><div class="cp-fill" style="width:52%; background:var(--alert-color);"></div></div><span class="cp-pct">52%</span></div>
+                    <div class="cp-row"><span class="cp-label">Гр. риска (ЦП 95,0%)</span><div class="cp-bar"><div class="cp-fill" style="width:78%; background:var(--accent-color);"></div></div><span class="cp-pct">78%</span></div>
+                    <div class="cp-row"><span class="cp-label">Дообсл. (ЦП 95,0%)</span><div class="cp-bar"><div class="cp-fill" style="width:70%; background:var(--alert-color);"></div></div><span class="cp-pct">70%</span></div>
+                    <div class="status-text" style="color:var(--alert-color);">🔴 Ниже ЦП</div>
+                    <button onclick="openReport('Поликлиника №3')" style="margin-top:10px; background:var(--base-color); color:var(--base-foreground-color); border:none; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; transition:0.15s; align-self:flex-start; font-family:'Roboto',sans-serif;">
                         📄 Подробнее
                     </button>
                 </div>
 
-                <!-- ========== ПОЛИКЛИНИКА №4 (ДЕТСКАЯ) ========== -->
-                <div style="background:#f8faff; border-radius:12px; padding:14px 16px; border-left:4px solid #7c54b0; display:flex; flex-direction:column; box-shadow:0 0 0 2px #d0e0ff;">
-                    <div style="font-weight:700; font-size:14px; color:#0a2647;">Поликлиника №4 <span style="font-weight:400; font-size:11px; color:#7c54b0;">(детская)</span></div>
-                    <div style="font-size:12px; color:#5a7a9a; margin:2px 0 6px;">прикреплено 35 000 чел. (1–17 лет)</div>
-
-                    <!-- Иммунодиагностика (ЦП 95,0%) – ЖЕЛТЫЙ -->
-                    <div style="display:flex; align-items:center; gap:6px; margin-top:4px; flex-wrap:nowrap;">
-                        <span style="font-size:10px; font-weight:500; color:#1e3d5e; min-width:70px; flex-shrink:0;">Иммуно (ЦП 95,0%)</span>
-                        <div style="flex:1; min-width:40px; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:83%; background:#e6a200; border-radius:6px;"></div>
-                        </div>
-                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:35px; text-align:right; flex-shrink:0;">83%</span>
-                    </div>
-
-                    <!-- Сводный охват (ЦП 73,0%) – ЖЕЛТЫЙ -->
-                    <div style="display:flex; align-items:center; gap:6px; margin-top:2px; flex-wrap:nowrap;">
-                        <span style="font-size:10px; font-weight:500; color:#1e3d5e; min-width:70px; flex-shrink:0;">Сводный (ЦП 73,0%)</span>
-                        <div style="flex:1; min-width:40px; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:71%; background:#e6a200; border-radius:6px;"></div>
-                        </div>
-                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:35px; text-align:right; flex-shrink:0;">71%</span>
-                    </div>
-
-                    <!-- Группы риска (ЦП 95,0%) – ЖЕЛТЫЙ -->
-                    <div style="display:flex; align-items:center; gap:6px; margin-top:2px; flex-wrap:nowrap;">
-                        <span style="font-size:10px; font-weight:500; color:#1e3d5e; min-width:70px; flex-shrink:0;">Гр. риска (ЦП 95,0%)</span>
-                        <div style="flex:1; min-width:40px; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:90%; background:#e6a200; border-radius:6px;"></div>
-                        </div>
-                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:35px; text-align:right; flex-shrink:0;">90%</span>
-                    </div>
-
-                    <!-- Дообследование (ЦП 95,0%) – ЗЕЛЕНЫЙ -->
-                    <div style="display:flex; align-items:center; gap:6px; margin-top:2px; flex-wrap:nowrap;">
-                        <span style="font-size:10px; font-weight:500; color:#1e3d5e; min-width:70px; flex-shrink:0;">Дообсл. (ЦП 95,0%)</span>
-                        <div style="flex:1; min-width:40px; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:96%; background:#1d9e4a; border-radius:6px;"></div>
-                        </div>
-                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:35px; text-align:right; flex-shrink:0;">96%</span>
-                    </div>
-
-                    <button onclick="openReport('Поликлиника №4')" style="margin-top:10px; background:#0a2647; color:white; border:none; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; transition:0.15s; align-self:flex-start;">
+                <!-- Поликлиника №4 (ДЕТСКАЯ) -->
+                <div class="polyclinic-card" style="border-left-color:#7c54b0; box-shadow:0 0 0 2px var(--base-light-color);">
+                    <div class="name">Поликлиника №4 <span class="type">(детская)</span></div>
+                    <div class="attached">прикреплено 35 000 чел. (1–17 лет)</div>
+                    <div class="cp-row"><span class="cp-label">Иммуно (ЦП 95,0%)</span><div class="cp-bar"><div class="cp-fill" style="width:83%; background:var(--accent-color);"></div></div><span class="cp-pct">83%</span></div>
+                    <div class="cp-row"><span class="cp-label">Сводный (ЦП 73,0%)</span><div class="cp-bar"><div class="cp-fill" style="width:71%; background:var(--accent-color);"></div></div><span class="cp-pct">71%</span></div>
+                    <div class="cp-row"><span class="cp-label">Гр. риска (ЦП 95,0%)</span><div class="cp-bar"><div class="cp-fill" style="width:90%; background:var(--accent-color);"></div></div><span class="cp-pct">90%</span></div>
+                    <div class="cp-row"><span class="cp-label">Дообсл. (ЦП 95,0%)</span><div class="cp-bar"><div class="cp-fill" style="width:96%; background:var(--confirm-color);"></div></div><span class="cp-pct">96%</span></div>
+                    <div class="status-text" style="color:var(--accent-color);">🟡 Требуется внимание</div>
+                    <button onclick="openReport('Поликлиника №4')" style="margin-top:10px; background:var(--base-color); color:var(--base-foreground-color); border:none; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; transition:0.15s; align-self:flex-start; font-family:'Roboto',sans-serif;">
                         📄 Подробнее
                     </button>
                 </div>
 
             </div>
             <!-- ИТОГО ПО ЮРИДИЧЕСКОМУ ЛИЦУ -->
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px; padding-top:10px; border-top:1px solid #e8eef6; font-size:13px; color:#1a3a6b; flex-wrap:wrap;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px; padding-top:10px; border-top:1px solid var(--divider-color); font-size:13px; color:var(--base-dark-color); flex-wrap:wrap;">
                 <span><strong>Юридическое лицо:</strong> ГБУЗ Долгопрудненская больница</span>
                 <span><strong>Всего прикреплено:</strong> 155 000 чел.</span>
-                <span><strong>Общий охват:</strong> <span style="font-weight:700; color:#b07f00;">59,5%</span> (ЦП 73,0%)</span>
-                <span style="color:#b33a34;">▼ отставание 13,5%</span>
+                <span><strong>Общий охват:</strong> <span style="font-weight:700; color:var(--accent-color);">59,5%</span> (ЦП 73,0%)</span>
+                <span style="color:var(--alert-color);">▼ отставание 13,5%</span>
             </div>
         </div>
+
         <!-- ============================================================ -->
         <!-- РАЗДЕЛ I. ФЛГ-обследование (15+) – 7 КАРТОЧЕК -->
         <!-- ============================================================ -->
@@ -821,7 +810,7 @@
                     <div class="label">Обследовано групп риска</div>
                     <div class="value">6 935</div>
                     <div class="sub">абс.ч., 95,0% от групп риска</div>
-                    <span class="badge green">ЦП=95,0% ✅</span>
+                    <span class="badge green">ЦП=95,0%</span>
                 </div>
                 <div class="kpi-card accent-red">
                     <div class="label">Не обследованы ФЛГ 2 и более лет</div>
@@ -833,13 +822,13 @@
                     <div class="label">Обследовано из числа не прошедших ФЛГ 2+ лет</div>
                     <div class="value">3 040</div>
                     <div class="sub">абс.ч., 95,0% от не прошедших</div>
-                    <span class="badge green">ЦП=95,0% ✅</span>
+                    <span class="badge green">ЦП=95,0%</span>
                 </div>
             </div>
 
             <!-- 1. Динамика охвата -->
             <div style="margin-bottom:12px;">
-                <div style="font-weight:600; font-size:14px; color:#0a2647; margin-bottom:6px;">1. Динамика охвата ФЛГ-обследованием помесячно с нарастающим итогом</div>
+                <div style="font-weight:600; font-size:14px; color:var(--color); margin-bottom:6px;">1. Динамика охвата ФЛГ-обследованием помесячно с нарастающим итогом</div>
                 <div class="chart-container">
                     <canvas id="flgChart"></canvas>
                 </div>
@@ -847,11 +836,11 @@
 
             <!-- 2. Достижение ЦП -->
             <div style="margin-bottom:4px;">
-                <div style="font-weight:600; font-size:14px; color:#0a2647; margin-bottom:4px;">2. Достижение целевых показателей (ЦП) за период</div>
-                <div style="display:flex; gap:24px; flex-wrap:wrap; background:#f6f9fe; border-radius:12px; padding:10px 18px; font-size:14px;">
+                <div style="font-weight:600; font-size:14px; color:var(--color); margin-bottom:4px;">2. Достижение целевых показателей (ЦП) за период</div>
+                <div style="display:flex; gap:24px; flex-wrap:wrap; background:var(--alt-background-color); border-radius:12px; padding:10px 18px; font-size:14px;">
                     <span><strong>Расчет помесячный ЦП:</strong> (68,2 / 12) × порядковое число месяца</span>
                     <span>На октябрь: план <strong>56,8%</strong>, факт <strong>55,2%</strong></span>
-                    <span style="color:#b33a34;">▼ отставание 1,6%</span>
+                    <span style="color:var(--alert-color);">▼ отставание 1,6%</span>
                 </div>
             </div>
         </div>
@@ -866,7 +855,7 @@
             </div>
 
             <div class="kpi-grid-7">
-                <div class="kpi-card" style="border-left-color:#1f5a9e;">
+                <div class="kpi-card" style="border-left-color:var(--base-color);">
                     <div class="label">Прикрепленное население от 1–17 лет</div>
                     <div class="value">20 000</div>
                     <div class="sub">абс.ч.</div>
@@ -892,7 +881,7 @@
                     <div class="label">Обследовано групп риска</div>
                     <div class="value">2 565</div>
                     <div class="sub">абс.ч., 95,0% от групп риска</div>
-                    <span class="badge green">ЦП=95,0% ✅</span>
+                    <span class="badge green">ЦП=95,0%</span>
                 </div>
                 <div class="kpi-card accent-red">
                     <div class="label">Не обследованные 2 и более лет по возрасту</div>
@@ -904,13 +893,13 @@
                     <div class="label">Обследовано из числа не прошедших 2+ лет</div>
                     <div class="value">532</div>
                     <div class="sub">абс.ч., 95,0% от не прошедших</div>
-                    <span class="badge green">ЦП=95,0% ✅</span>
+                    <span class="badge green">ЦП=95,0%</span>
                 </div>
             </div>
 
             <!-- 1. Динамика охвата -->
             <div style="margin-bottom:12px;">
-                <div style="font-weight:600; font-size:14px; color:#0a2647; margin-bottom:6px;">1. Динамика охвата иммунодиагностикой помесячно с нарастающим итогом</div>
+                <div style="font-weight:600; font-size:14px; color:var(--color); margin-bottom:6px;">1. Динамика охвата иммунодиагностикой помесячно с нарастающим итогом</div>
                 <div class="chart-container">
                     <canvas id="immunoChart"></canvas>
                 </div>
@@ -918,17 +907,17 @@
 
             <!-- 2. Достижение ЦП -->
             <div style="margin-bottom:4px;">
-                <div style="font-weight:600; font-size:14px; color:#0a2647; margin-bottom:4px;">2. Достижение целевых показателей (ЦП) за период</div>
-                <div style="display:flex; gap:24px; flex-wrap:wrap; background:#f6f9fe; border-radius:12px; padding:10px 18px; font-size:14px;">
+                <div style="font-weight:600; font-size:14px; color:var(--color); margin-bottom:4px;">2. Достижение целевых показателей (ЦП) за период</div>
+                <div style="display:flex; gap:24px; flex-wrap:wrap; background:var(--alt-background-color); border-radius:12px; padding:10px 18px; font-size:14px;">
                     <span><strong>Расчет помесячный ЦП:</strong> (95,0 / 12) × порядковое число месяца</span>
                     <span>На октябрь: план <strong>79,2%</strong>, факт <strong>81,0%</strong></span>
-                    <span style="color:#17a84c;">▲ опережение 1,8%</span>
+                    <span style="color:var(--confirm-color);">▲ опережение 1,8%</span>
                 </div>
             </div>
         </div>
 
         <!-- ============================================================ -->
-        <!-- ГРУППЫ РИСКА – 3 БЛОКА С РАЗБИВКОЙ ПО СТРОКАМ (РАЗНЫЕ ЦВЕТА) -->
+        <!-- ГРУППЫ РИСКА – 3 БЛОКА -->
         <!-- ============================================================ -->
         <div class="card">
             <div class="card-title">
@@ -941,7 +930,6 @@
                 <!-- БЛОК 1: МЕДИЦИНСКАЯ ГРУППА РИСКА -->
                 <div class="risk-block">
                     <h4>🏥 Медицинская группа риска</h4>
-
                     <div class="sub-title">Взрослые (15+)</div>
                     <div class="risk-row"><span class="r-label">ВИЧ-инфекция</span><div class="r-bar-bg"><div class="r-bar-fill green" style="width:95%;"></div></div><span class="r-pct">95%</span></div>
                     <div class="risk-row"><span class="r-label">Сахарный диабет</span><div class="r-bar-bg"><div class="r-bar-fill green" style="width:95%;"></div></div><span class="r-pct">95%</span></div>
@@ -956,18 +944,16 @@
                     <div class="risk-row"><span class="r-label">Снятые с диспансерного учета (первые 3 года)</span><div class="r-bar-bg"><div class="r-bar-fill yellow" style="width:85%;"></div></div><span class="r-pct">85%</span></div>
                     <div class="risk-row"><span class="r-label">Наблюдение в наркологических/психиатрических организациях</span><div class="r-bar-bg"><div class="r-bar-fill red" style="width:62%;"></div></div><span class="r-pct">62%</span></div>
                     <div class="risk-total">Итого взрослые: 6 450 / 5 213 (80,8%)</div>
-
                     <div class="sub-title" style="margin-top:10px;">Дети (1–17)</div>
                     <div class="risk-row"><span class="r-label">Иммуносупрессия (дети)</span><div class="r-bar-bg"><div class="r-bar-fill green" style="width:95%;"></div></div><span class="r-pct">95%</span></div>
                     <div class="risk-row"><span class="r-label">Сахарный диабет + хронические болезни (дети)</span><div class="r-bar-bg"><div class="r-bar-fill yellow" style="width:72%;"></div></div><span class="r-pct">72%</span></div>
                     <div class="risk-total">Итого дети: 1 120 / 925 (82,6%)</div>
-                    <div class="risk-total" style="background:#e3edfb; border-radius:8px; padding:4px;">ВСЕГО: 7 570 / 6 138 (81,1%)</div>
+                    <div class="risk-total" style="background:var(--alt-background-color); border-radius:8px; padding:4px;">ВСЕГО: 7 570 / 6 138 (81,1%)</div>
                 </div>
 
                 <!-- БЛОК 2: СОЦИАЛЬНАЯ ГРУППА РИСКА -->
                 <div class="risk-block">
                     <h4>👥 Социальная группа риска</h4>
-
                     <div class="sub-title">Взрослые (15+)</div>
                     <div class="risk-row"><span class="r-label">Военнослужащие по призыву</span><div class="r-bar-bg"><div class="r-bar-fill green" style="width:95%;"></div></div><span class="r-pct">95%</span></div>
                     <div class="risk-row"><span class="r-label">Беженцы (взрослые)</span><div class="r-bar-bg"><div class="r-bar-fill yellow" style="width:70%;"></div></div><span class="r-pct">70%</span></div>
@@ -977,19 +963,17 @@
                     <div class="risk-row"><span class="r-label">Проживающие совместно с беременными и новорожденными</span><div class="r-bar-bg"><div class="r-bar-fill yellow" style="width:80%;"></div></div><span class="r-pct">80%</span></div>
                     <div class="risk-row"><span class="r-label">Участники СВО (в течение 2 лет)</span><div class="r-bar-bg"><div class="r-bar-fill green" style="width:95%;"></div></div><span class="r-pct">95%</span></div>
                     <div class="risk-total">Итого взрослые: 2 070 / 1 658 (80,1%)</div>
-
                     <div class="sub-title" style="margin-top:10px;">Дети (1–17)</div>
                     <div class="risk-row"><span class="r-label">Дети, невакцинированные против туберкулеза</span><div class="r-bar-bg"><div class="r-bar-fill yellow" style="width:85%;"></div></div><span class="r-pct">85%</span></div>
                     <div class="risk-row"><span class="r-label">Дети в организациях социального обслуживания</span><div class="r-bar-bg"><div class="r-bar-fill red" style="width:48%;"></div></div><span class="r-pct">48%</span></div>
                     <div class="risk-row"><span class="r-label">Дети из числа мигрантов, беженцев, вынужденных переселенцев</span><div class="r-bar-bg"><div class="r-bar-fill yellow" style="width:72%;"></div></div><span class="r-pct">72%</span></div>
                     <div class="risk-total">Итого дети: 830 / 573 (69,0%)</div>
-                    <div class="risk-total" style="background:#e3edfb; border-radius:8px; padding:4px;">ВСЕГО: 2 900 / 2 231 (76,9%)</div>
+                    <div class="risk-total" style="background:var(--alt-background-color); border-radius:8px; padding:4px;">ВСЕГО: 2 900 / 2 231 (76,9%)</div>
                 </div>
 
                 <!-- БЛОК 3: ДЕКРЕТИРОВАННЫЙ КОНТИНГЕНТ -->
                 <div class="risk-block">
                     <h4>👔 Декретированный контингент</h4>
-
                     <div class="sub-title">Взрослые (15+)</div>
                     <div class="risk-row"><span class="r-label">Работники пищевой промышленности, бытового обслуживания, водопроводных сооружений</span><div class="r-bar-bg"><div class="r-bar-fill green" style="width:95%;"></div></div><span class="r-pct">95%</span></div>
                     <div class="risk-row"><span class="r-label">Работники организаций соц. обслуживания для престарелых и инвалидов</span><div class="r-bar-bg"><div class="r-bar-fill yellow" style="width:75%;"></div></div><span class="r-pct">75%</span></div>
@@ -1015,7 +999,6 @@
             </div>
 
             <div class="row-two" style="margin-bottom:0; gap:20px;">
-
                 <div class="funnel-group">
                     <div class="funnel-title adult">1. Взрослые (15+)</div>
                     <div class="funnel-item"><span class="f-label">Выявлено лиц с патологией в легких</span><span class="f-value">487</span><span class="f-pct">абс.ч.</span></div>
@@ -1023,7 +1006,6 @@
                     <div class="funnel-item highlight"><span class="f-label"><strong>Выявлено больных с туберкулезом</strong></span><span class="f-value"><strong>28</strong></span><span class="f-pct"><strong>6,4%</strong></span></div>
                     <div class="funnel-note warn">⚠️ Дообследовано 94,9% (не доведено до 95% – 25 чел.)</div>
                 </div>
-
                 <div class="funnel-group">
                     <div class="funnel-title child">2. Дети и подростки (1–17)</div>
                     <div class="funnel-item"><span class="f-label">Выявлено лиц с положит. и сомнит. реакцией</span><span class="f-value">93</span><span class="f-pct">абс.ч.</span></div>
@@ -1031,7 +1013,6 @@
                     <div class="funnel-item highlight-green"><span class="f-label"><strong>Выявлено больных с туберкулезом</strong></span><span class="f-value"><strong>4</strong></span><span class="f-pct"><strong>4,5%</strong></span></div>
                     <div class="funnel-note ok">✅ Дообследовано 96,8% (ЦП 95% достигнут)</div>
                 </div>
-
             </div>
         </div>
 
@@ -1045,7 +1026,7 @@
             </div>
 
             <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:14px;">
-                <div class="kpi-card" style="border-left-color:#1f5a9e;">
+                <div class="kpi-card" style="border-left-color:var(--base-color);">
                     <div class="label">Прикреплено по МО всего (дети+взрослые)</div>
                     <div class="value">120 000</div>
                     <div class="sub">абс.ч.</div>
@@ -1065,37 +1046,37 @@
                     <div class="label">Обследовано всего групп риска</div>
                     <div class="value">9 500</div>
                     <div class="sub">абс.ч., 95,0%</div>
-                    <span class="badge green">ЦП не менее 95,0% ✅</span>
+                    <span class="badge green">ЦП не менее 95,0%</span>
                 </div>
             </div>
 
             <div style="margin-bottom:12px;">
-                <div style="font-weight:600; font-size:14px; color:#0a2647; margin-bottom:6px;">1. Охват всего профосмотрами с нарастающим итогом</div>
+                <div style="font-weight:600; font-size:14px; color:var(--color); margin-bottom:6px;">1. Охват всего профосмотрами с нарастающим итогом</div>
                 <div class="chart-container tall">
                     <canvas id="summaryChart"></canvas>
                 </div>
             </div>
 
             <div style="margin-bottom:4px;">
-                <div style="font-weight:600; font-size:14px; color:#0a2647; margin-bottom:4px;">2. Достижение целевых показателей (ЦП) за период</div>
-                <div style="display:flex; gap:24px; flex-wrap:wrap; background:#f6f9fe; border-radius:12px; padding:10px 18px; font-size:14px;">
+                <div style="font-weight:600; font-size:14px; color:var(--color); margin-bottom:4px;">2. Достижение целевых показателей (ЦП) за период</div>
+                <div style="display:flex; gap:24px; flex-wrap:wrap; background:var(--alt-background-color); border-radius:12px; padding:10px 18px; font-size:14px;">
                     <span><strong>Расчет помесячный ЦП:</strong> (73,0 / 12) × порядковое число месяца</span>
                     <span>На октябрь: план <strong>60,8%</strong>, факт <strong>59,5%</strong></span>
-                    <span style="color:#b07f00;">▼ отставание 1,3%</span>
+                    <span style="color:var(--accent-color);">▼ отставание 1,3%</span>
                 </div>
             </div>
 
-            <div style="margin-top:16px; border-top:1px solid #e8eef6; padding-top:14px;">
-                <div style="font-weight:600; font-size:15px; color:#0a2647; margin-bottom:8px;">🏆 Оценка качества работы учреждения</div>
+            <div style="margin-top:16px; border-top:1px solid var(--divider-color); padding-top:14px;">
+                <div style="font-weight:600; font-size:15px; color:var(--color); margin-bottom:8px;">🏆 Оценка качества работы учреждения</div>
                 <div class="eval-grid">
-                    <div class="eval-item"><span class="crit">ФЛГ (взрослые) — ЦП 68,2%</span><span class="val" style="color:#b33a34;">55,2% (81%)</span></div>
-                    <div class="eval-item"><span class="crit">Иммунодиагностика (дети) — ЦП 95,0%</span><span class="val" style="color:#17a84c;">81,0% (85%)</span></div>
-                    <div class="eval-item"><span class="crit">Группы риска (взрослые) — ЦП 95%</span><span class="val" style="color:#17a84c;">95,0% (100%)</span></div>
-                    <div class="eval-item"><span class="crit">Группы риска (дети) — ЦП 95%</span><span class="val" style="color:#17a84c;">95,0% (100%)</span></div>
-                    <div class="eval-item"><span class="crit">Дообследование (взрослые) — ЦП 95%</span><span class="val" style="color:#b07f00;">94,9% (99,9%)</span></div>
-                    <div class="eval-item"><span class="crit">Дообследование (дети) — ЦП 95%</span><span class="val" style="color:#17a84c;">96,8% (102%)</span></div>
-                    <div class="eval-item"><span class="crit">Сводный охват — ЦП 73,0%</span><span class="val" style="color:#b07f00;">59,5% (82%)</span></div>
-                    <div class="eval-item"><span class="crit">Не обследованные 2+ лет (дообсл.) — ЦП 95%</span><span class="val" style="color:#17a84c;">95,0% (100%)</span></div>
+                    <div class="eval-item"><span class="crit">ФЛГ (взрослые) — ЦП 68,2%</span><span class="val" style="color:var(--alert-color);">55,2% (81%)</span></div>
+                    <div class="eval-item"><span class="crit">Иммунодиагностика (дети) — ЦП 95,0%</span><span class="val" style="color:var(--confirm-color);">81,0% (85%)</span></div>
+                    <div class="eval-item"><span class="crit">Группы риска (взрослые) — ЦП 95%</span><span class="val" style="color:var(--confirm-color);">95,0% (100%)</span></div>
+                    <div class="eval-item"><span class="crit">Группы риска (дети) — ЦП 95%</span><span class="val" style="color:var(--confirm-color);">95,0% (100%)</span></div>
+                    <div class="eval-item"><span class="crit">Дообследование (взрослые) — ЦП 95%</span><span class="val" style="color:var(--accent-color);">94,9% (99,9%)</span></div>
+                    <div class="eval-item"><span class="crit">Дообследование (дети) — ЦП 95%</span><span class="val" style="color:var(--confirm-color);">96,8% (102%)</span></div>
+                    <div class="eval-item"><span class="crit">Сводный охват — ЦП 73,0%</span><span class="val" style="color:var(--accent-color);">59,5% (82%)</span></div>
+                    <div class="eval-item"><span class="crit">Не обследованные 2+ лет (дообсл.) — ЦП 95%</span><span class="val" style="color:var(--confirm-color);">95,0% (100%)</span></div>
                 </div>
                 <div class="grade-block">
                     <span class="grade-text">🟡 Удовлетворительно</span>
@@ -1114,32 +1095,35 @@
 
     </div>
 
-         <!-- ============================================================ -->
+    <!-- ============================================================ -->
     <!-- МОДАЛЬНОЕ ОКНО ДЛЯ КНОПКИ "ПОДРОБНЕЕ" -->
     <!-- ============================================================ -->
     <div id="reportModal" class="modal-overlay">
-        <div class="modal-box" style="max-width:500px;">
+        <div class="modal-box">
             <button class="modal-close" onclick="closeModal()">&times;</button>
-            <div class="modal-title" style="font-size:18px;">
+            <div class="modal-title">
                 📄 Отчёт по <span id="modalTitle">Поликлинике</span>
             </div>
-            <div style="font-size:15px; color:#1a3a6b; padding:12px 0; line-height:1.6;">
+            <div class="modal-body-text">
                 Здесь будет такой же отчёт (дашборд), но только по <strong id="modalPolyclinicName">Поликлинике</strong>.
             </div>
-            <div class="modal-footer-btns" style="margin-top:12px; padding-top:12px;">
+            <div class="modal-footer-btns">
                 <button class="btn-close" onclick="closeModal()">Закрыть</button>
+            </div>
+            <div class="modal-dev-hint">
+                ⚙️ <strong>Для разработчика:</strong> после загрузки файла отчёта укажите ссылку в функции <code>openReport()</code>.
             </div>
         </div>
     </div>
 
     <!-- ============================================================ -->
-    <!-- CHART.JS – с БОЛЬШИМИ КОЛЕБАНИЯМИ -->
+    <!-- CHART.JS – ГРАФИКИ -->
     <!-- ============================================================ -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const months = ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'];
 
-            // ===== ФЛГ: факт с сильными колебаниями =====
+            // ===== ФЛГ =====
             new Chart(document.getElementById('flgChart'), {
                 type: 'line',
                 data: {
@@ -1147,24 +1131,24 @@
                     datasets: [{
                         label: 'Факт (ФЛГ)',
                         data: [7.2, 9.8, 19.5, 20.0, 31.0, 30.5, 43.0, 33.8, 59.5, 55.2],
-                        borderColor: '#2a6bb0',
-                        backgroundColor: '#2a6bb020',
+                        borderColor: '#536371',
+                        backgroundColor: '#53637120',
                         fill: true,
                         tension: 0.2,
                         pointRadius: 5,
-                        pointBackgroundColor: '#2a6bb0',
+                        pointBackgroundColor: '#536371',
                         borderWidth: 3
                     }, {
                         label: 'План (ЦП=68,2%)',
                         data: [5.7, 11.4, 17.0, 22.7, 28.4, 34.1, 39.8, 45.5, 51.2, 56.8],
-                        borderColor: '#d94a4a',
+                        borderColor: '#c62828',
                         backgroundColor: 'transparent',
                         borderDash: [6, 4],
                         tension: 0.3,
                         pointRadius: 3,
-                        pointBackgroundColor: '#d94a4a',
+                        pointBackgroundColor: '#c62828',
                         borderWidth: 2,
-                        pointBorderColor: '#d94a4a'
+                        pointBorderColor: '#c62828'
                     }]
                 },
                 options: {
@@ -1177,13 +1161,13 @@
                     },
                     scales: {
                         y: { min: 0, max: 75, ticks: { callback: function(v) { return v + '%'; }, font: { size: 10 } },
-                            grid: { color: '#eef3f9' } },
+                            grid: { color: '#dde4eb' } },
                         x: { grid: { display: false }, ticks: { font: { size: 10 } } }
                     }
                 }
             });
 
-            // ===== ИММУНОДИАГНОСТИКА: факт с сильными колебаниями =====
+            // ===== ИММУНОДИАГНОСТИКА =====
             new Chart(document.getElementById('immunoChart'), {
                 type: 'line',
                 data: {
@@ -1191,24 +1175,24 @@
                     datasets: [{
                         label: 'Факт (иммунодиагностика)',
                         data: [9.5, 13.5, 27.0, 28.5, 44.0, 44.5, 59.5, 60.0, 77.0, 81.0],
-                        borderColor: '#1d9e4a',
-                        backgroundColor: '#1d9e4a20',
+                        borderColor: '#558B2F',
+                        backgroundColor: '#558B2F20',
                         fill: true,
                         tension: 0.2,
                         pointRadius: 5,
-                        pointBackgroundColor: '#1d9e4a',
+                        pointBackgroundColor: '#558B2F',
                         borderWidth: 3
                     }, {
                         label: 'План (ЦП=95,0%)',
                         data: [7.9, 15.8, 23.8, 31.7, 39.6, 47.5, 55.4, 63.3, 71.3, 79.2],
-                        borderColor: '#e6a200',
+                        borderColor: '#e88a2a',
                         backgroundColor: 'transparent',
                         borderDash: [6, 4],
                         tension: 0.3,
                         pointRadius: 3,
-                        pointBackgroundColor: '#e6a200',
+                        pointBackgroundColor: '#e88a2a',
                         borderWidth: 2,
-                        pointBorderColor: '#e6a200'
+                        pointBorderColor: '#e88a2a'
                     }]
                 },
                 options: {
@@ -1221,13 +1205,13 @@
                     },
                     scales: {
                         y: { min: 0, max: 100, ticks: { callback: function(v) { return v + '%'; }, font: { size: 10 } },
-                            grid: { color: '#eef3f9' } },
+                            grid: { color: '#dde4eb' } },
                         x: { grid: { display: false }, ticks: { font: { size: 10 } } }
                     }
                 }
             });
 
-            // ===== СВОДНЫЙ: факт с сильными колебаниями =====
+            // ===== СВОДНЫЙ =====
             new Chart(document.getElementById('summaryChart'), {
                 type: 'line',
                 data: {
@@ -1245,14 +1229,14 @@
                     }, {
                         label: 'План (ЦП=73,0%)',
                         data: [6.1, 12.2, 18.3, 24.3, 30.4, 36.5, 42.6, 48.7, 54.8, 60.8],
-                        borderColor: '#e6a200',
+                        borderColor: '#e88a2a',
                         backgroundColor: 'transparent',
                         borderDash: [8, 5],
                         tension: 0.3,
                         pointRadius: 3,
-                        pointBackgroundColor: '#e6a200',
+                        pointBackgroundColor: '#e88a2a',
                         borderWidth: 2,
-                        pointBorderColor: '#e6a200'
+                        pointBorderColor: '#e88a2a'
                     }]
                 },
                 options: {
@@ -1265,7 +1249,7 @@
                     },
                     scales: {
                         y: { min: 0, max: 80, ticks: { callback: function(v) { return v + '%'; }, font: { size: 10 } },
-                            grid: { color: '#eef3f9' } },
+                            grid: { color: '#dde4eb' } },
                         x: { grid: { display: false }, ticks: { font: { size: 10 } } }
                     }
                 }
@@ -1274,11 +1258,10 @@
         });
     </script>
 
-        <script>
-        // ===== ПЕРЕМЕННАЯ ДЛЯ ХРАНЕНИЯ ТЕКУЩЕЙ ПОЛИКЛИНИКИ =====
+    <script>
+        // ===== МОДАЛЬНОЕ ОКНО =====
         var currentPolyclinic = '';
 
-        // ===== ОТКРЫТЬ МОДАЛЬНОЕ ОКНО =====
         function openReport(polyclinic) {
             currentPolyclinic = polyclinic;
             document.getElementById('modalTitle').textContent = polyclinic;
@@ -1286,19 +1269,16 @@
             document.getElementById('reportModal').classList.add('active');
         }
 
-        // ===== ЗАКРЫТЬ МОДАЛЬНОЕ ОКНО =====
         function closeModal() {
             document.getElementById('reportModal').classList.remove('active');
         }
 
-        // ===== ЗАКРЫТИЕ ПО КЛИКУ НА ФОН =====
         document.getElementById('reportModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeModal();
             }
         });
 
-        // ===== ЗАКРЫТИЕ ПО ESC =====
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeModal();
