@@ -1136,44 +1136,20 @@
 
     </div>
 
-    <!-- ============================================================ -->
+      <!-- ============================================================ -->
     <!-- МОДАЛЬНОЕ ОКНО ДЛЯ КНОПКИ "ПОДРОБНЕЕ" -->
     <!-- ============================================================ -->
     <div id="reportModal" class="modal-overlay">
-        <div class="modal-box">
+        <div class="modal-box" style="max-width:500px;">
             <button class="modal-close" onclick="closeModal()">&times;</button>
-            <div class="modal-title">
-                📄 Детальный отчёт по <span id="modalTitle">Поликлинике</span>
+            <div class="modal-title" style="font-size:18px;">
+                📄 Отчёт по <span id="modalTitle">Поликлинике</span>
             </div>
-            <div class="modal-sub">
-                Полная версия дашборда для выбранного подразделения
+            <div style="font-size:15px; color:#1a3a6b; padding:12px 0; line-height:1.6;">
+                Здесь будет такой же отчёт, но только по <strong id="modalPolyclinicName">Поликлинике</strong>.
             </div>
-            <div class="modal-body">
-                <p style="margin-bottom:12px;">
-                    <strong>Здесь будет полный отчёт по</strong>
-                    <span id="modalPolyclinicName" style="font-weight:700; color:#0a2647;">Поликлинике</span>,
-                    <span id="modalPolyclinicType" style="font-weight:600; color:#2a6bb0;">взрослой</span>.
-                </p>
-                <p style="margin-bottom:12px;">
-                    В этом отчёте вы сможете увидеть <strong>все те же разделы</strong>, что и на основном дашборде, но <strong>только по данному подразделению</strong>:
-                </p>
-                <ul>
-                    <li><strong>ФЛГ-обследование</strong> — охват взрослого населения</li>
-                    <li><strong>Иммунодиагностика</strong> — охват детского населения</li>
-                    <li><strong>Группы риска</strong> — медицинские, социальные, декретированные</li>
-                    <li><strong>Дообследование патологии</strong> — контроль качества</li>
-                    <li><strong>Сводные данные</strong> — итоговые показатели</li>
-                </ul>
-                <div class="modal-hint">
-                    💡 <strong>Как это будет работать:</strong> когда вы загрузите файл с отчётом, он откроется здесь же, в этом окне, или в новой вкладке (в зависимости от формата).
-                </div>
-            </div>
-            <div class="modal-footer-btns">
+            <div class="modal-footer-btns" style="margin-top:12px; padding-top:12px;">
                 <button class="btn-close" onclick="closeModal()">Закрыть</button>
-                <button class="btn-open" onclick="openReportFromModal()">📂 Открыть отчёт (когда загружен)</button>
-            </div>
-            <div class="modal-dev-hint">
-                ⚙️ <strong>Для разработчика:</strong> после загрузки файла отчёта укажите ссылку в функции <code>openReport()</code>.
             </div>
         </div>
     </div>
