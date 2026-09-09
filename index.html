@@ -272,10 +272,6 @@
             min-width: 40px;
             text-align: right;
         }
-        .risk-row .r-status {
-            font-size: 13px;
-            min-width: 20px;
-        }
         .risk-total {
             font-weight: 700;
             color: #0a2647;
@@ -396,6 +392,134 @@
             padding-top: 14px;
         }
 
+        /* ===== МОДАЛЬНОЕ ОКНО ===== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 38, 71, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal-box {
+            background: white;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            padding: 30px 32px 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal-close {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: #7a8da0;
+            cursor: pointer;
+            transition: 0.15s;
+            line-height: 1;
+        }
+        .modal-close:hover {
+            color: #0a2647;
+        }
+        .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0a2647;
+            margin-bottom: 4px;
+        }
+        .modal-title span {
+            color: #2a6bb0;
+        }
+        .modal-sub {
+            font-size: 14px;
+            color: #5a7a9a;
+            margin-bottom: 16px;
+            border-bottom: 1px solid #e8eef6;
+            padding-bottom: 12px;
+        }
+        .modal-body {
+            font-size: 15px;
+            color: #1a3a6b;
+            line-height: 1.6;
+        }
+        .modal-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 16px 0;
+        }
+        .modal-body ul li {
+            padding: 6px 0 6px 24px;
+            border-bottom: 1px solid #f0f4fa;
+            background: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%222a6bb0%22 stroke-width=%222%22><polyline points=%2220 6 9 17 4 12%22/></svg>') left center no-repeat;
+            background-size: 16px;
+        }
+        .modal-hint {
+            background: #f0f6fe;
+            border-radius: 12px;
+            padding: 12px 16px;
+            font-size: 14px;
+            color: #1a4a7a;
+            border-left: 4px solid #2a6bb0;
+        }
+        .modal-footer-btns {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px;
+            padding-top: 14px;
+            border-top: 1px solid #e8eef6;
+            flex-wrap: wrap;
+        }
+        .modal-footer-btns button {
+            border: none;
+            border-radius: 10px;
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.15s;
+        }
+        .btn-close {
+            flex: 1;
+            background: #e8eef6;
+            color: #1a3a6b;
+            min-width: 120px;
+        }
+        .btn-close:hover {
+            background: #d5dfeb;
+        }
+        .btn-open {
+            flex: 2;
+            background: #0a2647;
+            color: white;
+            min-width: 160px;
+        }
+        .btn-open:hover {
+            background: #1a3a6b;
+        }
+        .modal-dev-hint {
+            margin-top: 12px;
+            font-size: 12px;
+            color: #7a8da0;
+            background: #f8faff;
+            border-radius: 8px;
+            padding: 8px 12px;
+            border: 1px dashed #dde5ef;
+        }
+
         /* ===== АДАПТИВ ===== */
         @media (max-width: 1200px) {
             .kpi-grid-7 {
@@ -444,7 +568,7 @@
 <body>
     <div class="dashboard">
 
-                <!-- ============================================================ -->
+        <!-- ============================================================ -->
         <!-- ЗАГОЛОВОК -->
         <!-- ============================================================ -->
         <div class="header">
@@ -464,7 +588,7 @@
             </div>
         </div>
 
-                       <!-- ============================================================ -->
+        <!-- ============================================================ -->
         <!-- СТРУКТУРНЫЕ ПОДРАЗДЕЛЕНИЯ (ПОЛИКЛИНИКИ) С КНОПКАМИ "ПОДРОБНЕЕ" -->
         <!-- ============================================================ -->
         <div class="card" style="margin-bottom:16px; padding:16px 20px 18px;">
@@ -474,65 +598,65 @@
             </div>
             <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px;">
 
-                <!-- Поликлиника №1 -->
-                <div style="background:#f8faff; border-radius:12px; padding:14px 16px; border-left:4px solid #1d9e4a; display:flex; flex-direction:column;">
-                    <div style="font-weight:600; font-size:14px; color:#0a2647;">Поликлиника №1</div>
-                    <div style="font-size:12px; color:#5a7a9a; margin:2px 0 6px;">прикреплено 42 500 чел.</div>
+                <!-- Поликлиника №1 (ВЗРОСЛАЯ) -->
+                <div style="background:#f8faff; border-radius:12px; padding:14px 16px; border-left:4px solid #2a6bb0; display:flex; flex-direction:column;">
+                    <div style="font-weight:600; font-size:14px; color:#0a2647;">Поликлиника №1 <span style="font-weight:400; font-size:11px; color:#2a6bb0;">(взрослая)</span></div>
+                    <div style="font-size:12px; color:#5a7a9a; margin:2px 0 6px;">прикреплено 42 500 чел. (15+)</div>
                     <div style="display:flex; align-items:center; gap:10px;">
                         <div style="flex:1; height:10px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:87%; background:linear-gradient(90deg,#1d9e4a,#4ecb7a); border-radius:6px;"></div>
+                            <div style="height:100%; width:64%; background:linear-gradient(90deg,#2a6bb0,#5b9cf5); border-radius:6px;"></div>
                         </div>
-                        <span style="font-weight:700; font-size:14px; color:#0a2647; min-width:40px;">87%</span>
+                        <span style="font-weight:700; font-size:14px; color:#0a2647; min-width:40px;">64%</span>
                     </div>
-                    <div style="font-size:11px; color:#17a84c; margin-top:4px;">✅ ЦП выполнен</div>
+                    <div style="font-size:11px; color:#a67c00; margin-top:4px;">🟡 Ниже ЦП (68,2%)</div>
                     <button onclick="openReport('Поликлиника №1')" style="margin-top:10px; background:#0a2647; color:white; border:none; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; transition:0.15s; align-self:flex-start;">
                         📄 Подробнее
                     </button>
                 </div>
 
-                <!-- Поликлиника №2 -->
-                <div style="background:#f8faff; border-radius:12px; padding:14px 16px; border-left:4px solid #e6a200; display:flex; flex-direction:column;">
-                    <div style="font-weight:600; font-size:14px; color:#0a2647;">Поликлиника №2</div>
-                    <div style="font-size:12px; color:#5a7a9a; margin:2px 0 6px;">прикреплено 38 200 чел.</div>
+                <!-- Поликлиника №2 (ВЗРОСЛАЯ) -->
+                <div style="background:#f8faff; border-radius:12px; padding:14px 16px; border-left:4px solid #1d9e4a; display:flex; flex-direction:column;">
+                    <div style="font-weight:600; font-size:14px; color:#0a2647;">Поликлиника №2 <span style="font-weight:400; font-size:11px; color:#1d9e4a;">(взрослая)</span></div>
+                    <div style="font-size:12px; color:#5a7a9a; margin:2px 0 6px;">прикреплено 38 200 чел. (15+)</div>
                     <div style="display:flex; align-items:center; gap:10px;">
                         <div style="flex:1; height:10px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:73%; background:linear-gradient(90deg,#e6a200,#f5c542); border-radius:6px;"></div>
+                            <div style="height:100%; width:71%; background:linear-gradient(90deg,#1d9e4a,#4ecb7a); border-radius:6px;"></div>
                         </div>
-                        <span style="font-weight:700; font-size:14px; color:#0a2647; min-width:40px;">73%</span>
+                        <span style="font-weight:700; font-size:14px; color:#0a2647; min-width:40px;">71%</span>
                     </div>
-                    <div style="font-size:11px; color:#a67c00; margin-top:4px;">🟡 Требуется внимание</div>
+                    <div style="font-size:11px; color:#17a84c; margin-top:4px;">✅ ЦП выполнен (68,2%)</div>
                     <button onclick="openReport('Поликлиника №2')" style="margin-top:10px; background:#0a2647; color:white; border:none; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; transition:0.15s; align-self:flex-start;">
                         📄 Подробнее
                     </button>
                 </div>
 
-                <!-- Поликлиника №3 (ОСНОВНАЯ) -->
-                <div style="background:#eef4ff; border-radius:12px; padding:14px 16px; border-left:4px solid #2a6bb0; box-shadow:0 0 0 2px #d0e0ff; display:flex; flex-direction:column;">
-                    <div style="font-weight:700; font-size:14px; color:#0a2647;">Поликлиника №3 <span style="font-weight:400; font-size:11px; color:#2a6bb0;">(основная)</span></div>
-                    <div style="font-size:12px; color:#5a7a9a; margin:2px 0 6px;">прикреплено 39 300 чел.</div>
+                <!-- Поликлиника №3 (ВЗРОСЛАЯ) -->
+                <div style="background:#f8faff; border-radius:12px; padding:14px 16px; border-left:4px solid #e6a200; display:flex; flex-direction:column;">
+                    <div style="font-weight:600; font-size:14px; color:#0a2647;">Поликлиника №3 <span style="font-weight:400; font-size:11px; color:#e6a200;">(взрослая)</span></div>
+                    <div style="font-size:12px; color:#5a7a9a; margin:2px 0 6px;">прикреплено 39 300 чел. (15+)</div>
                     <div style="display:flex; align-items:center; gap:10px;">
                         <div style="flex:1; height:10px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:59.5%; background:linear-gradient(90deg,#2a6bb0,#5b9cf5); border-radius:6px;"></div>
+                            <div style="height:100%; width:55%; background:linear-gradient(90deg,#e6a200,#f5c542); border-radius:6px;"></div>
                         </div>
-                        <span style="font-weight:700; font-size:14px; color:#0a2647; min-width:40px;">59,5%</span>
+                        <span style="font-weight:700; font-size:14px; color:#0a2647; min-width:40px;">55%</span>
                     </div>
-                    <div style="font-size:11px; color:#b33a34; margin-top:4px;">🔴 Ниже ЦП (73%)</div>
+                    <div style="font-size:11px; color:#b33a34; margin-top:4px;">🔴 Ниже ЦП (68,2%)</div>
                     <button onclick="openReport('Поликлиника №3')" style="margin-top:10px; background:#0a2647; color:white; border:none; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; transition:0.15s; align-self:flex-start;">
                         📄 Подробнее
                     </button>
                 </div>
 
-                <!-- Поликлиника №4 -->
-                <div style="background:#f8faff; border-radius:12px; padding:14px 16px; border-left:4px solid #d94a4a; display:flex; flex-direction:column;">
-                    <div style="font-weight:600; font-size:14px; color:#0a2647;">Поликлиника №4</div>
-                    <div style="font-size:12px; color:#5a7a9a; margin:2px 0 6px;">прикреплено 35 000 чел.</div>
+                <!-- Поликлиника №4 (ДЕТСКАЯ) -->
+                <div style="background:#eef4ff; border-radius:12px; padding:14px 16px; border-left:4px solid #7c54b0; box-shadow:0 0 0 2px #d0e0ff; display:flex; flex-direction:column;">
+                    <div style="font-weight:700; font-size:14px; color:#0a2647;">Поликлиника №4 <span style="font-weight:400; font-size:11px; color:#7c54b0;">(детская)</span></div>
+                    <div style="font-size:12px; color:#5a7a9a; margin:2px 0 6px;">прикреплено 35 000 чел. (1–17 лет)</div>
                     <div style="display:flex; align-items:center; gap:10px;">
                         <div style="flex:1; height:10px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:48%; background:linear-gradient(90deg,#d94a4a,#f07575); border-radius:6px;"></div>
+                            <div style="height:100%; width:83%; background:linear-gradient(90deg,#7c54b0,#b38fd9); border-radius:6px;"></div>
                         </div>
-                        <span style="font-weight:700; font-size:14px; color:#0a2647; min-width:40px;">48%</span>
+                        <span style="font-weight:700; font-size:14px; color:#0a2647; min-width:40px;">83%</span>
                     </div>
-                    <div style="font-size:11px; color:#b33a34; margin-top:4px;">🔴 Критично низкий охват</div>
+                    <div style="font-size:11px; color:#a67c00; margin-top:4px;">🟡 Ниже ЦП (95,0%)</div>
                     <button onclick="openReport('Поликлиника №4')" style="margin-top:10px; background:#0a2647; color:white; border:none; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; transition:0.15s; align-self:flex-start;">
                         📄 Подробнее
                     </button>
@@ -541,7 +665,7 @@
             </div>
             <!-- ИТОГО ПО ЮРИДИЧЕСКОМУ ЛИЦУ -->
             <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px; padding-top:10px; border-top:1px solid #e8eef6; font-size:13px; color:#1a3a6b; flex-wrap:wrap;">
-                <span><strong>Юридическое лицо:</strong> ГБУЗ «Поликлиника №3» (Долгопрудненская больница)</span>
+                <span><strong>Юридическое лицо:</strong> ГБУЗ Долгопрудненская больница</span>
                 <span><strong>Всего прикреплено:</strong> 155 000 чел.</span>
                 <span><strong>Общий охват:</strong> <span style="font-weight:700; color:#b07f00;">59,5%</span> (ЦП 73,0%)</span>
                 <span style="color:#b33a34;">▼ отставание 13,5%</span>
@@ -690,7 +814,7 @@
             </div>
         </div>
 
-                        <!-- ============================================================ -->
+        <!-- ============================================================ -->
         <!-- ГРУППЫ РИСКА – 3 БЛОКА С РАЗБИВКОЙ ПО СТРОКАМ (РАЗНЫЕ ЦВЕТА) -->
         <!-- ============================================================ -->
         <div class="card">
@@ -867,13 +991,57 @@
             </div>
         </div>
 
-               <!-- ============================================================ -->
+        <!-- ============================================================ -->
         <!-- ПОДВАЛ -->
         <!-- ============================================================ -->
         <div class="footer">
             Дашборд «План-график по раннему выявлению туберкулеза» — ГБУЗ Долгопрудненская больница · Данные на 01.10.2026<br>
             Прикрепленное население: 155 000 чел. (по всем поликлиникам) · Группы риска: 10 000 чел.
         </div>
+
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- МОДАЛЬНОЕ ОКНО ДЛЯ КНОПКИ "ПОДРОБНЕЕ" -->
+    <!-- ============================================================ -->
+    <div id="reportModal" class="modal-overlay">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-title">
+                📄 Детальный отчёт по <span id="modalTitle">Поликлинике</span>
+            </div>
+            <div class="modal-sub">
+                Полная версия дашборда для выбранного подразделения
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom:12px;">
+                    <strong>Здесь будет полный отчёт по</strong>
+                    <span id="modalPolyclinicName" style="font-weight:700; color:#0a2647;">Поликлинике</span>,
+                    <span id="modalPolyclinicType" style="font-weight:600; color:#2a6bb0;">взрослой</span>.
+                </p>
+                <p style="margin-bottom:12px;">
+                    В этом отчёте вы сможете увидеть <strong>все те же разделы</strong>, что и на основном дашборде, но <strong>только по данному подразделению</strong>:
+                </p>
+                <ul>
+                    <li><strong>ФЛГ-обследование</strong> — охват взрослого населения</li>
+                    <li><strong>Иммунодиагностика</strong> — охват детского населения</li>
+                    <li><strong>Группы риска</strong> — медицинские, социальные, декретированные</li>
+                    <li><strong>Дообследование патологии</strong> — контроль качества</li>
+                    <li><strong>Сводные данные</strong> — итоговые показатели</li>
+                </ul>
+                <div class="modal-hint">
+                    💡 <strong>Как это будет работать:</strong> когда вы загрузите файл с отчётом, он откроется здесь же, в этом окне, или в новой вкладке (в зависимости от формата).
+                </div>
+            </div>
+            <div class="modal-footer-btns">
+                <button class="btn-close" onclick="closeModal()">Закрыть</button>
+                <button class="btn-open" onclick="openReportFromModal()">📂 Открыть отчёт (когда загружен)</button>
+            </div>
+            <div class="modal-dev-hint">
+                ⚙️ <strong>Для разработчика:</strong> после загрузки файла отчёта укажите ссылку в функции <code>openReport()</code>.
+            </div>
+        </div>
+    </div>
 
     <!-- ============================================================ -->
     <!-- CHART.JS – с БОЛЬШИМИ КОЛЕБАНИЯМИ -->
@@ -1016,27 +1184,58 @@
 
         });
     </script>
+
     <script>
-        // ===== ФУНКЦИЯ ДЛЯ КНОПКИ "ПОДРОБНЕЕ" =====
+        // ===== ПЕРЕМЕННАЯ ДЛЯ ХРАНЕНИЯ ТЕКУЩЕЙ ПОЛИКЛИНИКИ =====
+        var currentPolyclinic = '';
+        var currentPolyclinicType = '';
+
+        // ===== ОТКРЫТЬ МОДАЛЬНОЕ ОКНО =====
         function openReport(polyclinic) {
-            // Сейчас это заглушка. Позже замените ссылку на реальный файл.
-            var fileUrls = {
-                'Поликлиника №1': 'reports/polyclinic_1_report.xlsx',
-                'Поликлиника №2': 'reports/polyclinic_2_report.xlsx',
-                'Поликлиника №3': 'reports/polyclinic_3_report.xlsx',
-                'Поликлиника №4': 'reports/polyclinic_4_report.xlsx'
-            };
+            currentPolyclinic = polyclinic;
 
-            var url = fileUrls[polyclinic] || '#';
-
-            if (url === '#') {
-                alert('Отчёт для ' + polyclinic + ' пока не загружен.\n\n' +
-                      'Как загрузите файл на сервер, укажите ссылку в коде функции openReport().');
+            // Определяем тип поликлиники
+            if (polyclinic === 'Поликлиника №4') {
+                currentPolyclinicType = 'детской';
             } else {
-                // Открываем файл в новой вкладке
-                window.open(url, '_blank');
+                currentPolyclinicType = 'взрослой';
             }
+
+            // Заполняем заголовки
+            document.getElementById('modalTitle').textContent = polyclinic;
+            document.getElementById('modalPolyclinicName').textContent = polyclinic;
+            document.getElementById('modalPolyclinicType').textContent = currentPolyclinicType;
+
+            // Показываем модальное окно
+            document.getElementById('reportModal').classList.add('active');
         }
+
+        // ===== ЗАКРЫТЬ МОДАЛЬНОЕ ОКНО =====
+        function closeModal() {
+            document.getElementById('reportModal').classList.remove('active');
+        }
+
+        // ===== ОТКРЫТЬ ОТЧЁТ ИЗ МОДАЛЬНОГО ОКНА =====
+        function openReportFromModal() {
+            alert('📄 Отчёт для ' + currentPolyclinic + ' пока не загружен.\n\n' +
+                'Как загрузите файл на сервер, укажите ссылку в функции openReport().\n\n' +
+                'Сейчас здесь будет полный дашборд по ' + currentPolyclinic + ' с теми же разделами, что и на главном экране.');
+        }
+
+        // ===== ЗАКРЫТИЕ ПО КЛИКУ НА ФОН =====
+        document.getElementById('reportModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // ===== ЗАКРЫТИЕ ПО ESC =====
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
     </script>
+
 </body>
 </html>
