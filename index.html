@@ -1279,41 +1279,21 @@
         });
     </script>
 
-    <script>
+        <script>
         // ===== ПЕРЕМЕННАЯ ДЛЯ ХРАНЕНИЯ ТЕКУЩЕЙ ПОЛИКЛИНИКИ =====
         var currentPolyclinic = '';
-        var currentPolyclinicType = '';
 
         // ===== ОТКРЫТЬ МОДАЛЬНОЕ ОКНО =====
         function openReport(polyclinic) {
             currentPolyclinic = polyclinic;
-
-            // Определяем тип поликлиники
-            if (polyclinic === 'Поликлиника №4') {
-                currentPolyclinicType = 'детской';
-            } else {
-                currentPolyclinicType = 'взрослой';
-            }
-
-            // Заполняем заголовки
             document.getElementById('modalTitle').textContent = polyclinic;
             document.getElementById('modalPolyclinicName').textContent = polyclinic;
-            document.getElementById('modalPolyclinicType').textContent = currentPolyclinicType;
-
-            // Показываем модальное окно
             document.getElementById('reportModal').classList.add('active');
         }
 
         // ===== ЗАКРЫТЬ МОДАЛЬНОЕ ОКНО =====
         function closeModal() {
             document.getElementById('reportModal').classList.remove('active');
-        }
-
-        // ===== ОТКРЫТЬ ОТЧЁТ ИЗ МОДАЛЬНОГО ОКНА =====
-        function openReportFromModal() {
-            alert('📄 Отчёт для ' + currentPolyclinic + ' пока не загружен.\n\n' +
-                'Как загрузите файл на сервер, укажите ссылку в функции openReport().\n\n' +
-                'Сейчас здесь будет полный дашборд по ' + currentPolyclinic + ' с теми же разделами, что и на главном экране.');
         }
 
         // ===== ЗАКРЫТИЕ ПО КЛИКУ НА ФОН =====
