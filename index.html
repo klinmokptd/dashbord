@@ -464,8 +464,8 @@
             </div>
         </div>
 
-                <!-- ============================================================ -->
-        <!-- СТРУКТУРНЫЕ ПОДРАЗДЕЛЕНИЯ (ПОЛИКЛИНИКИ) -->
+                       <!-- ============================================================ -->
+        <!-- СТРУКТУРНЫЕ ПОДРАЗДЕЛЕНИЯ (ПОЛИКЛИНИКИ) С КНОПКАМИ "ПОДРОБНЕЕ" -->
         <!-- ============================================================ -->
         <div class="card" style="margin-bottom:16px; padding:16px 20px 18px;">
             <div class="card-title" style="font-size:15px; margin-bottom:8px; border-bottom:1px solid #e8eef6; padding-bottom:6px;">
@@ -475,7 +475,7 @@
             <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px;">
 
                 <!-- Поликлиника №1 -->
-                <div style="background:#f8faff; border-radius:12px; padding:14px 16px; border-left:4px solid #1d9e4a;">
+                <div style="background:#f8faff; border-radius:12px; padding:14px 16px; border-left:4px solid #1d9e4a; display:flex; flex-direction:column;">
                     <div style="font-weight:600; font-size:14px; color:#0a2647;">Поликлиника №1</div>
                     <div style="font-size:12px; color:#5a7a9a; margin:2px 0 6px;">прикреплено 42 500 чел.</div>
                     <div style="display:flex; align-items:center; gap:10px;">
@@ -485,10 +485,13 @@
                         <span style="font-weight:700; font-size:14px; color:#0a2647; min-width:40px;">87%</span>
                     </div>
                     <div style="font-size:11px; color:#17a84c; margin-top:4px;">✅ ЦП выполнен</div>
+                    <button onclick="openReport('Поликлиника №1')" style="margin-top:10px; background:#0a2647; color:white; border:none; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; transition:0.15s; align-self:flex-start;">
+                        📄 Подробнее
+                    </button>
                 </div>
 
                 <!-- Поликлиника №2 -->
-                <div style="background:#f8faff; border-radius:12px; padding:14px 16px; border-left:4px solid #e6a200;">
+                <div style="background:#f8faff; border-radius:12px; padding:14px 16px; border-left:4px solid #e6a200; display:flex; flex-direction:column;">
                     <div style="font-weight:600; font-size:14px; color:#0a2647;">Поликлиника №2</div>
                     <div style="font-size:12px; color:#5a7a9a; margin:2px 0 6px;">прикреплено 38 200 чел.</div>
                     <div style="display:flex; align-items:center; gap:10px;">
@@ -498,10 +501,13 @@
                         <span style="font-weight:700; font-size:14px; color:#0a2647; min-width:40px;">73%</span>
                     </div>
                     <div style="font-size:11px; color:#a67c00; margin-top:4px;">🟡 Требуется внимание</div>
+                    <button onclick="openReport('Поликлиника №2')" style="margin-top:10px; background:#0a2647; color:white; border:none; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; transition:0.15s; align-self:flex-start;">
+                        📄 Подробнее
+                    </button>
                 </div>
 
                 <!-- Поликлиника №3 (ОСНОВНАЯ) -->
-                <div style="background:#eef4ff; border-radius:12px; padding:14px 16px; border-left:4px solid #2a6bb0; box-shadow:0 0 0 2px #d0e0ff;">
+                <div style="background:#eef4ff; border-radius:12px; padding:14px 16px; border-left:4px solid #2a6bb0; box-shadow:0 0 0 2px #d0e0ff; display:flex; flex-direction:column;">
                     <div style="font-weight:700; font-size:14px; color:#0a2647;">Поликлиника №3 <span style="font-weight:400; font-size:11px; color:#2a6bb0;">(основная)</span></div>
                     <div style="font-size:12px; color:#5a7a9a; margin:2px 0 6px;">прикреплено 39 300 чел.</div>
                     <div style="display:flex; align-items:center; gap:10px;">
@@ -511,10 +517,13 @@
                         <span style="font-weight:700; font-size:14px; color:#0a2647; min-width:40px;">59,5%</span>
                     </div>
                     <div style="font-size:11px; color:#b33a34; margin-top:4px;">🔴 Ниже ЦП (73%)</div>
+                    <button onclick="openReport('Поликлиника №3')" style="margin-top:10px; background:#0a2647; color:white; border:none; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; transition:0.15s; align-self:flex-start;">
+                        📄 Подробнее
+                    </button>
                 </div>
 
                 <!-- Поликлиника №4 -->
-                <div style="background:#f8faff; border-radius:12px; padding:14px 16px; border-left:4px solid #d94a4a;">
+                <div style="background:#f8faff; border-radius:12px; padding:14px 16px; border-left:4px solid #d94a4a; display:flex; flex-direction:column;">
                     <div style="font-weight:600; font-size:14px; color:#0a2647;">Поликлиника №4</div>
                     <div style="font-size:12px; color:#5a7a9a; margin:2px 0 6px;">прикреплено 35 000 чел.</div>
                     <div style="display:flex; align-items:center; gap:10px;">
@@ -524,6 +533,9 @@
                         <span style="font-weight:700; font-size:14px; color:#0a2647; min-width:40px;">48%</span>
                     </div>
                     <div style="font-size:11px; color:#b33a34; margin-top:4px;">🔴 Критично низкий охват</div>
+                    <button onclick="openReport('Поликлиника №4')" style="margin-top:10px; background:#0a2647; color:white; border:none; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; transition:0.15s; align-self:flex-start;">
+                        📄 Подробнее
+                    </button>
                 </div>
 
             </div>
@@ -1004,6 +1016,27 @@
 
         });
     </script>
+    <script>
+        // ===== ФУНКЦИЯ ДЛЯ КНОПКИ "ПОДРОБНЕЕ" =====
+        function openReport(polyclinic) {
+            // Сейчас это заглушка. Позже замените ссылку на реальный файл.
+            var fileUrls = {
+                'Поликлиника №1': 'reports/polyclinic_1_report.xlsx',
+                'Поликлиника №2': 'reports/polyclinic_2_report.xlsx',
+                'Поликлиника №3': 'reports/polyclinic_3_report.xlsx',
+                'Поликлиника №4': 'reports/polyclinic_4_report.xlsx'
+            };
 
+            var url = fileUrls[polyclinic] || '#';
+
+            if (url === '#') {
+                alert('Отчёт для ' + polyclinic + ' пока не загружен.\n\n' +
+                      'Как загрузите файл на сервер, укажите ссылку в коде функции openReport().');
+            } else {
+                // Открываем файл в новой вкладке
+                window.open(url, '_blank');
+            }
+        }
+    </script>
 </body>
 </html>
