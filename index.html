@@ -1095,22 +1095,21 @@
 
     </div>
 
-    <!-- ============================================================ -->
+       <!-- ============================================================ -->
     <!-- МОДАЛЬНОЕ ОКНО ДЛЯ КНОПКИ "ПОДРОБНЕЕ" -->
     <!-- ============================================================ -->
     <div id="reportModal" class="modal-overlay">
-        <div class="modal-box">
+        <div class="modal-box" style="max-width:500px;">
             <button class="modal-close" onclick="closeModal()">&times;</button>
             <div class="modal-title">
                 📄 Отчёт по <span id="modalTitle">Поликлинике</span>
             </div>
             <div class="modal-body-text">
-                Здесь будет такой же отчёт (дашборд), но только по <strong id="modalPolyclinicName">Поликлинике</strong>.
+                Здесь будет полный отчёт по <strong id="modalPolyclinicName">Поликлинике</strong> с теми же разделами, что и на главном дашборде.
             </div>
-            <div class="modal-footer-btns">
+            <div class="modal-footer-btns" style="margin-top:12px; padding-top:12px; border-top:1px solid var(--divider-color);">
                 <button class="btn-close" onclick="closeModal()">Закрыть</button>
             </div>
-           
         </div>
     </div>
 
