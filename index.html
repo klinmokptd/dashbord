@@ -105,44 +105,46 @@
             color: #0a2647;
         }
 
-        /* ===== KPI СЕТКА (шапка) ===== */
-        .kpi-grid {
+        /* ===== KPI СЕТКА (7 карточек) ===== */
+        .kpi-grid-7 {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 14px;
-            margin-bottom: 24px;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            margin-bottom: 16px;
         }
         .kpi-card {
             background: #fff;
-            border-radius: 14px;
-            padding: 14px 16px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            border-radius: 12px;
+            padding: 12px 12px 10px;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.02);
             border-left: 4px solid #2a6bb0;
+            border-bottom: 1px solid #f0f4fa;
         }
         .kpi-card .label {
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.3px;
             color: #7a8da0;
+            line-height: 1.2;
         }
         .kpi-card .value {
-            font-size: 26px;
+            font-size: 22px;
             font-weight: 700;
             color: #0a2647;
             line-height: 1.2;
         }
         .kpi-card .sub {
-            font-size: 13px;
+            font-size: 11px;
             color: #5a6f86;
         }
         .kpi-card .badge {
             display: inline-block;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 600;
-            padding: 2px 12px;
+            padding: 1px 10px;
             border-radius: 20px;
-            margin-top: 4px;
+            margin-top: 2px;
         }
         .badge.green {
             background: #e0f5e4;
@@ -172,6 +174,12 @@
         .kpi-card.accent-purple {
             border-left-color: #7c54b0;
         }
+        .kpi-card.accent-teal {
+            border-left-color: #1e8f8f;
+        }
+        .kpi-card.accent-orange {
+            border-left-color: #e67e22;
+        }
 
         /* ===== ДВЕ КОЛОНКИ ===== */
         .row-two {
@@ -184,10 +192,10 @@
         /* ===== ГРАФИКИ ===== */
         .chart-container {
             position: relative;
-            height: 200px;
+            height: 190px;
         }
         .chart-container.tall {
-            height: 230px;
+            height: 220px;
         }
 
         /* ===== ТАБЛИЦЫ ГРУПП РИСКА ===== */
@@ -351,8 +359,13 @@
         }
 
         /* ===== АДАПТИВ ===== */
-        @media (max-width: 1100px) {
-            .kpi-grid {
+        @media (max-width: 1200px) {
+            .kpi-grid-7 {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        @media (max-width: 900px) {
+            .kpi-grid-7 {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
@@ -366,7 +379,7 @@
                 align-items: stretch;
                 gap: 10px;
             }
-            .kpi-grid {
+            .kpi-grid-7 {
                 grid-template-columns: 1fr 1fr;
             }
             .eval-grid {
@@ -378,7 +391,7 @@
             }
         }
         @media (max-width: 500px) {
-            .kpi-grid {
+            .kpi-grid-7 {
                 grid-template-columns: 1fr;
             }
             body {
@@ -409,41 +422,7 @@
         </div>
 
         <!-- ============================================================ -->
-        <!-- ВЕРХНЯЯ ШАПКА – KPI (по ТЗ: прикрепленное 15+, подлежит, группы риска, обследовано всего, обследовано групп риска) -->
-        <!-- ============================================================ -->
-        <div class="kpi-grid">
-            <div class="kpi-card">
-                <div class="label">Прикрепленное население 15 лет и ст.</div>
-                <div class="value">100 000</div>
-                <div class="sub">абс.ч.</div>
-            </div>
-            <div class="kpi-card accent-yellow">
-                <div class="label">Подлежит обследованию (д.б. не менее 68,2%)</div>
-                <div class="value">68 200</div>
-                <div class="sub">абс.ч.</div>
-                <span class="badge yellow">68,2%</span>
-            </div>
-            <div class="kpi-card accent-purple">
-                <div class="label">Из них группы риска</div>
-                <div class="value">7 300</div>
-                <div class="sub">абс.ч., 7,3% от прикр.</div>
-            </div>
-            <div class="kpi-card accent-yellow">
-                <div class="label">Обследовано всего</div>
-                <div class="value">55 200</div>
-                <div class="sub">абс., 55,2% от прикр.</div>
-                <span class="badge yellow">ЦП=68,2</span>
-            </div>
-            <div class="kpi-card accent-green">
-                <div class="label">Обследовано групп риска</div>
-                <div class="value">6 935</div>
-                <div class="sub">абс.ч., 95,0% от групп риска</div>
-                <span class="badge green">ЦП=95,0% ✅</span>
-            </div>
-        </div>
-
-        <!-- ============================================================ -->
-        <!-- РАЗДЕЛ I. ФЛГ-обследование (15+) -->
+        <!-- РАЗДЕЛ I. ФЛГ-обследование (15+) – 7 КАРТОЧЕК -->
         <!-- ============================================================ -->
         <div class="card">
             <div class="card-title">
@@ -451,7 +430,51 @@
                 <span class="cp-label">ЦП: <strong>68,2%</strong></span>
             </div>
 
-            <!-- 1. Динамика охвата ФЛГ-обследованием помесячно с нарастающим итогом -->
+            <!-- 7 карточек -->
+            <div class="kpi-grid-7">
+                <div class="kpi-card">
+                    <div class="label">Прикрепленное население 15 лет и ст.</div>
+                    <div class="value">100 000</div>
+                    <div class="sub">абс.ч.</div>
+                </div>
+                <div class="kpi-card accent-yellow">
+                    <div class="label">Подлежит обследованию</div>
+                    <div class="value">68 200</div>
+                    <div class="sub">абс.ч. (д.б. не менее 68,2%)</div>
+                    <span class="badge yellow">68,2%</span>
+                </div>
+                <div class="kpi-card accent-purple">
+                    <div class="label">Из них группы риска</div>
+                    <div class="value">7 300</div>
+                    <div class="sub">абс.ч., 7,3% от прикр.</div>
+                </div>
+                <div class="kpi-card accent-yellow">
+                    <div class="label">Обследовано всего</div>
+                    <div class="value">55 200</div>
+                    <div class="sub">абс., 55,2% от прикр.</div>
+                    <span class="badge yellow">ЦП=68,2</span>
+                </div>
+                <div class="kpi-card accent-green">
+                    <div class="label">Обследовано групп риска</div>
+                    <div class="value">6 935</div>
+                    <div class="sub">абс.ч., 95,0% от групп риска</div>
+                    <span class="badge green">ЦП=95,0% ✅</span>
+                </div>
+                <div class="kpi-card accent-red">
+                    <div class="label">Не обследованы ФЛГ 2 и более лет</div>
+                    <div class="value">3 200</div>
+                    <div class="sub">абс.ч., 3,2% от прикр.</div>
+                    <span class="badge red">долг</span>
+                </div>
+                <div class="kpi-card accent-green">
+                    <div class="label">Обследовано из числа не прошедших ФЛГ 2+ лет</div>
+                    <div class="value">3 040</div>
+                    <div class="sub">абс.ч., 95,0% от не прошедших</div>
+                    <span class="badge green">ЦП=95,0% ✅</span>
+                </div>
+            </div>
+
+            <!-- 1. Динамика охвата -->
             <div style="margin-bottom:12px;">
                 <div style="font-weight:600; font-size:14px; color:#0a2647; margin-bottom:6px;">1. Динамика охвата ФЛГ-обследованием помесячно с нарастающим итогом</div>
                 <div class="chart-container">
@@ -459,8 +482,8 @@
                 </div>
             </div>
 
-            <!-- 2. Достижение целевых показателей (ЦП) за определенный период времени -->
-            <div style="margin-bottom:12px;">
+            <!-- 2. Достижение ЦП -->
+            <div style="margin-bottom:4px;">
                 <div style="font-weight:600; font-size:14px; color:#0a2647; margin-bottom:4px;">2. Достижение целевых показателей (ЦП) за период</div>
                 <div style="display:flex; gap:24px; flex-wrap:wrap; background:#f6f9fe; border-radius:12px; padding:10px 18px; font-size:14px;">
                     <span><strong>Расчет помесячный ЦП:</strong> (68,2 / 12) × порядковое число месяца</span>
@@ -468,17 +491,10 @@
                     <span style="color:#b33a34;">▼ отставание 1,6%</span>
                 </div>
             </div>
-
-            <!-- Не обследованы ФЛГ 2 и более лет -->
-            <div style="background:#fdf3ed; border-radius:12px; padding:12px 18px; display:flex; gap:24px; flex-wrap:wrap; font-size:14px;">
-                <span><strong>Не обследованы ФЛГ 2 и более лет:</strong> 3 200 абс.ч. (3,2% от прикр.)</span>
-                <span><strong>Обследовано из числа лиц, не обследованных 2+ лет:</strong> 3 040 абс.ч. (95,0%)</span>
-                <span style="color:#17a84c;">✅ ЦП=95,0%</span>
-            </div>
         </div>
 
         <!-- ============================================================ -->
-        <!-- РАЗДЕЛ II. ИММУНОДИАГНОСТИКА (дети 1–17) -->
+        <!-- РАЗДЕЛ II. ИММУНОДИАГНОСТИКА (дети 1–17) – 7 КАРТОЧЕК -->
         <!-- ============================================================ -->
         <div class="card">
             <div class="card-title">
@@ -486,23 +502,23 @@
                 <span class="cp-label">ЦП: <strong>95,0%</strong></span>
             </div>
 
-            <!-- KPI для детей -->
-            <div class="kpi-grid" style="grid-template-columns: repeat(5, 1fr); margin-bottom:14px;">
+            <!-- 7 карточек -->
+            <div class="kpi-grid-7">
                 <div class="kpi-card" style="border-left-color:#1f5a9e;">
                     <div class="label">Прикрепленное население от 1–17 лет</div>
                     <div class="value">20 000</div>
                     <div class="sub">абс.ч.</div>
                 </div>
-                <div class="kpi-card accent-yellow">
-                    <div class="label">Подлежит обследованию (не менее 95,0%)</div>
-                    <div class="value">19 000</div>
-                    <div class="sub">абс.ч.</div>
-                    <span class="badge blue">95,0%</span>
-                </div>
                 <div class="kpi-card accent-purple">
                     <div class="label">Из них группы риска</div>
                     <div class="value">2 700</div>
                     <div class="sub">абс.ч., 13,5% от прикр.</div>
+                </div>
+                <div class="kpi-card accent-yellow">
+                    <div class="label">Подлежит обследованию</div>
+                    <div class="value">19 000</div>
+                    <div class="sub">абс.ч. (д.б. не менее 95,0%)</div>
+                    <span class="badge blue">95,0%</span>
                 </div>
                 <div class="kpi-card accent-yellow">
                     <div class="label">Обследовано всего</div>
@@ -516,9 +532,21 @@
                     <div class="sub">абс.ч., 95,0% от групп риска</div>
                     <span class="badge green">ЦП=95,0% ✅</span>
                 </div>
+                <div class="kpi-card accent-red">
+                    <div class="label">Не обследованные 2 и более лет по возрасту</div>
+                    <div class="value">560</div>
+                    <div class="sub">абс.ч., 2,8% от прикр.</div>
+                    <span class="badge red">долг</span>
+                </div>
+                <div class="kpi-card accent-green">
+                    <div class="label">Обследовано из числа не прошедших 2+ лет</div>
+                    <div class="value">532</div>
+                    <div class="sub">абс.ч., 95,0% от не прошедших</div>
+                    <span class="badge green">ЦП=95,0% ✅</span>
+                </div>
             </div>
 
-            <!-- 1. Динамика охвата иммунодиагностикой -->
+            <!-- 1. Динамика охвата -->
             <div style="margin-bottom:12px;">
                 <div style="font-weight:600; font-size:14px; color:#0a2647; margin-bottom:6px;">1. Динамика охвата иммунодиагностикой помесячно с нарастающим итогом</div>
                 <div class="chart-container">
@@ -623,8 +651,8 @@
                 <span class="cp-label">ЦП: <strong>73,0%</strong></span>
             </div>
 
-            <!-- KPI сводные -->
-            <div class="kpi-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom:14px;">
+            <!-- KPI сводные (4 карточки) -->
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:14px;">
                 <div class="kpi-card" style="border-left-color:#1f5a9e;">
                     <div class="label">Прикреплено по МО всего (дети+взрослые)</div>
                     <div class="value">120 000</div>
@@ -649,7 +677,7 @@
                 </div>
             </div>
 
-            <!-- 1. Охват всего профосмотрами с нарастающим итогом -->
+            <!-- 1. Охват всего профосмотрами -->
             <div style="margin-bottom:12px;">
                 <div style="font-weight:600; font-size:14px; color:#0a2647; margin-bottom:6px;">1. Охват всего профосмотрами с нарастающим итогом</div>
                 <div class="chart-container tall">
