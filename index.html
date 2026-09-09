@@ -588,75 +588,211 @@
             </div>
         </div>
 
-        <!-- ============================================================ -->
-        <!-- СТРУКТУРНЫЕ ПОДРАЗДЕЛЕНИЯ (ПОЛИКЛИНИКИ) С КНОПКАМИ "ПОДРОБНЕЕ" -->
+               <!-- ============================================================ -->
+        <!-- СТРУКТУРНЫЕ ПОДРАЗДЕЛЕНИЯ (ПОЛИКЛИНИКИ) С НЕСКОЛЬКИМИ ЦП -->
         <!-- ============================================================ -->
         <div class="card" style="margin-bottom:16px; padding:16px 20px 18px;">
             <div class="card-title" style="font-size:15px; margin-bottom:8px; border-bottom:1px solid #e8eef6; padding-bottom:6px;">
                 🏥 Структурные подразделения (поликлиники)
-                <span style="font-size:12px; font-weight:400; color:#5a7a9a;">Охват профосмотрами на 01.10.2026</span>
+                <span style="font-size:12px; font-weight:400; color:#5a7a9a;">Целевые показатели на 01.10.2026</span>
             </div>
             <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px;">
 
-                <!-- Поликлиника №1 (ВЗРОСЛАЯ) -->
+                <!-- ========== ПОЛИКЛИНИКА №1 (ВЗРОСЛАЯ) ========== -->
                 <div style="background:#f8faff; border-radius:12px; padding:14px 16px; border-left:4px solid #2a6bb0; display:flex; flex-direction:column;">
                     <div style="font-weight:600; font-size:14px; color:#0a2647;">Поликлиника №1 <span style="font-weight:400; font-size:11px; color:#2a6bb0;">(взрослая)</span></div>
                     <div style="font-size:12px; color:#5a7a9a; margin:2px 0 6px;">прикреплено 42 500 чел. (15+)</div>
-                    <div style="display:flex; align-items:center; gap:10px;">
-                        <div style="flex:1; height:10px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:64%; background:linear-gradient(90deg,#2a6bb0,#5b9cf5); border-radius:6px;"></div>
+                    
+                    <!-- ФЛГ (ЦП 68,2%) -->
+                    <div style="display:flex; align-items:center; gap:8px; margin-top:4px;">
+                        <span style="font-size:11px; font-weight:500; color:#1e3d5e; min-width:80px;">ФЛГ (ЦП 68,2%)</span>
+                        <div style="flex:1; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
+                            <div style="height:100%; width:64%; background:#2a6bb0; border-radius:6px;"></div>
                         </div>
-                        <span style="font-weight:700; font-size:14px; color:#0a2647; min-width:40px;">64%</span>
+                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:40px; text-align:right;">64%</span>
+                        <span style="font-size:11px; color:#a67c00;">🟡</span>
                     </div>
-                    <div style="font-size:11px; color:#a67c00; margin-top:4px;">🟡 Ниже ЦП (68,2%)</div>
+                    
+                    <!-- Сводный охват (ЦП 73,0%) -->
+                    <div style="display:flex; align-items:center; gap:8px; margin-top:2px;">
+                        <span style="font-size:11px; font-weight:500; color:#1e3d5e; min-width:80px;">Сводный (ЦП 73,0%)</span>
+                        <div style="flex:1; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
+                            <div style="height:100%; width:61%; background:#7c54b0; border-radius:6px;"></div>
+                        </div>
+                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:40px; text-align:right;">61%</span>
+                        <span style="font-size:11px; color:#a67c00;">🟡</span>
+                    </div>
+                    
+                    <!-- Группы риска (ЦП 95,0%) -->
+                    <div style="display:flex; align-items:center; gap:8px; margin-top:2px;">
+                        <span style="font-size:11px; font-weight:500; color:#1e3d5e; min-width:80px;">Гр. риска (ЦП 95,0%)</span>
+                        <div style="flex:1; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
+                            <div style="height:100%; width:92%; background:#1d9e4a; border-radius:6px;"></div>
+                        </div>
+                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:40px; text-align:right;">92%</span>
+                        <span style="font-size:11px; color:#a67c00;">🟡</span>
+                    </div>
+                    
+                    <!-- Дообследование (ЦП 95,0%) -->
+                    <div style="display:flex; align-items:center; gap:8px; margin-top:2px;">
+                        <span style="font-size:11px; font-weight:500; color:#1e3d5e; min-width:80px;">Дообсл. (ЦП 95,0%)</span>
+                        <div style="flex:1; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
+                            <div style="height:100%; width:88%; background:#e6a200; border-radius:6px;"></div>
+                        </div>
+                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:40px; text-align:right;">88%</span>
+                        <span style="font-size:11px; color:#a67c00;">🟡</span>
+                    </div>
+                    
                     <button onclick="openReport('Поликлиника №1')" style="margin-top:10px; background:#0a2647; color:white; border:none; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; transition:0.15s; align-self:flex-start;">
                         📄 Подробнее
                     </button>
                 </div>
 
-                <!-- Поликлиника №2 (ВЗРОСЛАЯ) -->
+                <!-- ========== ПОЛИКЛИНИКА №2 (ВЗРОСЛАЯ) ========== -->
                 <div style="background:#f8faff; border-radius:12px; padding:14px 16px; border-left:4px solid #1d9e4a; display:flex; flex-direction:column;">
                     <div style="font-weight:600; font-size:14px; color:#0a2647;">Поликлиника №2 <span style="font-weight:400; font-size:11px; color:#1d9e4a;">(взрослая)</span></div>
                     <div style="font-size:12px; color:#5a7a9a; margin:2px 0 6px;">прикреплено 38 200 чел. (15+)</div>
-                    <div style="display:flex; align-items:center; gap:10px;">
-                        <div style="flex:1; height:10px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:71%; background:linear-gradient(90deg,#1d9e4a,#4ecb7a); border-radius:6px;"></div>
+                    
+                    <!-- ФЛГ (ЦП 68,2%) -->
+                    <div style="display:flex; align-items:center; gap:8px; margin-top:4px;">
+                        <span style="font-size:11px; font-weight:500; color:#1e3d5e; min-width:80px;">ФЛГ (ЦП 68,2%)</span>
+                        <div style="flex:1; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
+                            <div style="height:100%; width:71%; background:#1d9e4a; border-radius:6px;"></div>
                         </div>
-                        <span style="font-weight:700; font-size:14px; color:#0a2647; min-width:40px;">71%</span>
+                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:40px; text-align:right;">71%</span>
+                        <span style="font-size:11px; color:#17a84c;">✅</span>
                     </div>
-                    <div style="font-size:11px; color:#17a84c; margin-top:4px;">✅ ЦП выполнен (68,2%)</div>
+                    
+                    <!-- Сводный охват (ЦП 73,0%) -->
+                    <div style="display:flex; align-items:center; gap:8px; margin-top:2px;">
+                        <span style="font-size:11px; font-weight:500; color:#1e3d5e; min-width:80px;">Сводный (ЦП 73,0%)</span>
+                        <div style="flex:1; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
+                            <div style="height:100%; width:68%; background:#7c54b0; border-radius:6px;"></div>
+                        </div>
+                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:40px; text-align:right;">68%</span>
+                        <span style="font-size:11px; color:#a67c00;">🟡</span>
+                    </div>
+                    
+                    <!-- Группы риска (ЦП 95,0%) -->
+                    <div style="display:flex; align-items:center; gap:8px; margin-top:2px;">
+                        <span style="font-size:11px; font-weight:500; color:#1e3d5e; min-width:80px;">Гр. риска (ЦП 95,0%)</span>
+                        <div style="flex:1; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
+                            <div style="height:100%; width:95%; background:#1d9e4a; border-radius:6px;"></div>
+                        </div>
+                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:40px; text-align:right;">95%</span>
+                        <span style="font-size:11px; color:#17a84c;">✅</span>
+                    </div>
+                    
+                    <!-- Дообследование (ЦП 95,0%) -->
+                    <div style="display:flex; align-items:center; gap:8px; margin-top:2px;">
+                        <span style="font-size:11px; font-weight:500; color:#1e3d5e; min-width:80px;">Дообсл. (ЦП 95,0%)</span>
+                        <div style="flex:1; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
+                            <div style="height:100%; width:93%; background:#e6a200; border-radius:6px;"></div>
+                        </div>
+                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:40px; text-align:right;">93%</span>
+                        <span style="font-size:11px; color:#a67c00;">🟡</span>
+                    </div>
+                    
                     <button onclick="openReport('Поликлиника №2')" style="margin-top:10px; background:#0a2647; color:white; border:none; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; transition:0.15s; align-self:flex-start;">
                         📄 Подробнее
                     </button>
                 </div>
 
-                <!-- Поликлиника №3 (ВЗРОСЛАЯ) -->
+                <!-- ========== ПОЛИКЛИНИКА №3 (ВЗРОСЛАЯ) ========== -->
                 <div style="background:#f8faff; border-radius:12px; padding:14px 16px; border-left:4px solid #e6a200; display:flex; flex-direction:column;">
                     <div style="font-weight:600; font-size:14px; color:#0a2647;">Поликлиника №3 <span style="font-weight:400; font-size:11px; color:#e6a200;">(взрослая)</span></div>
                     <div style="font-size:12px; color:#5a7a9a; margin:2px 0 6px;">прикреплено 39 300 чел. (15+)</div>
-                    <div style="display:flex; align-items:center; gap:10px;">
-                        <div style="flex:1; height:10px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:55%; background:linear-gradient(90deg,#e6a200,#f5c542); border-radius:6px;"></div>
+                    
+                    <!-- ФЛГ (ЦП 68,2%) -->
+                    <div style="display:flex; align-items:center; gap:8px; margin-top:4px;">
+                        <span style="font-size:11px; font-weight:500; color:#1e3d5e; min-width:80px;">ФЛГ (ЦП 68,2%)</span>
+                        <div style="flex:1; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
+                            <div style="height:100%; width:55%; background:#d94a4a; border-radius:6px;"></div>
                         </div>
-                        <span style="font-weight:700; font-size:14px; color:#0a2647; min-width:40px;">55%</span>
+                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:40px; text-align:right;">55%</span>
+                        <span style="font-size:11px; color:#b33a34;">🔴</span>
                     </div>
-                    <div style="font-size:11px; color:#b33a34; margin-top:4px;">🔴 Ниже ЦП (68,2%)</div>
+                    
+                    <!-- Сводный охват (ЦП 73,0%) -->
+                    <div style="display:flex; align-items:center; gap:8px; margin-top:2px;">
+                        <span style="font-size:11px; font-weight:500; color:#1e3d5e; min-width:80px;">Сводный (ЦП 73,0%)</span>
+                        <div style="flex:1; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
+                            <div style="height:100%; width:52%; background:#d94a4a; border-radius:6px;"></div>
+                        </div>
+                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:40px; text-align:right;">52%</span>
+                        <span style="font-size:11px; color:#b33a34;">🔴</span>
+                    </div>
+                    
+                    <!-- Группы риска (ЦП 95,0%) -->
+                    <div style="display:flex; align-items:center; gap:8px; margin-top:2px;">
+                        <span style="font-size:11px; font-weight:500; color:#1e3d5e; min-width:80px;">Гр. риска (ЦП 95,0%)</span>
+                        <div style="flex:1; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
+                            <div style="height:100%; width:78%; background:#e6a200; border-radius:6px;"></div>
+                        </div>
+                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:40px; text-align:right;">78%</span>
+                        <span style="font-size:11px; color:#a67c00;">🟡</span>
+                    </div>
+                    
+                    <!-- Дообследование (ЦП 95,0%) -->
+                    <div style="display:flex; align-items:center; gap:8px; margin-top:2px;">
+                        <span style="font-size:11px; font-weight:500; color:#1e3d5e; min-width:80px;">Дообсл. (ЦП 95,0%)</span>
+                        <div style="flex:1; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
+                            <div style="height:100%; width:70%; background:#d94a4a; border-radius:6px;"></div>
+                        </div>
+                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:40px; text-align:right;">70%</span>
+                        <span style="font-size:11px; color:#b33a34;">🔴</span>
+                    </div>
+                    
                     <button onclick="openReport('Поликлиника №3')" style="margin-top:10px; background:#0a2647; color:white; border:none; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; transition:0.15s; align-self:flex-start;">
                         📄 Подробнее
                     </button>
                 </div>
 
-                <!-- Поликлиника №4 (ДЕТСКАЯ) -->
+                <!-- ========== ПОЛИКЛИНИКА №4 (ДЕТСКАЯ) ========== -->
                 <div style="background:#eef4ff; border-radius:12px; padding:14px 16px; border-left:4px solid #7c54b0; box-shadow:0 0 0 2px #d0e0ff; display:flex; flex-direction:column;">
                     <div style="font-weight:700; font-size:14px; color:#0a2647;">Поликлиника №4 <span style="font-weight:400; font-size:11px; color:#7c54b0;">(детская)</span></div>
                     <div style="font-size:12px; color:#5a7a9a; margin:2px 0 6px;">прикреплено 35 000 чел. (1–17 лет)</div>
-                    <div style="display:flex; align-items:center; gap:10px;">
-                        <div style="flex:1; height:10px; background:#e8eef6; border-radius:6px; overflow:hidden;">
-                            <div style="height:100%; width:83%; background:linear-gradient(90deg,#7c54b0,#b38fd9); border-radius:6px;"></div>
+                    
+                    <!-- Иммунодиагностика (ЦП 95,0%) -->
+                    <div style="display:flex; align-items:center; gap:8px; margin-top:4px;">
+                        <span style="font-size:11px; font-weight:500; color:#1e3d5e; min-width:80px;">Иммуно (ЦП 95,0%)</span>
+                        <div style="flex:1; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
+                            <div style="height:100%; width:83%; background:#7c54b0; border-radius:6px;"></div>
                         </div>
-                        <span style="font-weight:700; font-size:14px; color:#0a2647; min-width:40px;">83%</span>
+                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:40px; text-align:right;">83%</span>
+                        <span style="font-size:11px; color:#a67c00;">🟡</span>
                     </div>
-                    <div style="font-size:11px; color:#a67c00; margin-top:4px;">🟡 Ниже ЦП (95,0%)</div>
+                    
+                    <!-- Сводный охват (ЦП 73,0%) -->
+                    <div style="display:flex; align-items:center; gap:8px; margin-top:2px;">
+                        <span style="font-size:11px; font-weight:500; color:#1e3d5e; min-width:80px;">Сводный (ЦП 73,0%)</span>
+                        <div style="flex:1; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
+                            <div style="height:100%; width:71%; background:#7c54b0; border-radius:6px;"></div>
+                        </div>
+                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:40px; text-align:right;">71%</span>
+                        <span style="font-size:11px; color:#a67c00;">🟡</span>
+                    </div>
+                    
+                    <!-- Группы риска (ЦП 95,0%) -->
+                    <div style="display:flex; align-items:center; gap:8px; margin-top:2px;">
+                        <span style="font-size:11px; font-weight:500; color:#1e3d5e; min-width:80px;">Гр. риска (ЦП 95,0%)</span>
+                        <div style="flex:1; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
+                            <div style="height:100%; width:90%; background:#1d9e4a; border-radius:6px;"></div>
+                        </div>
+                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:40px; text-align:right;">90%</span>
+                        <span style="font-size:11px; color:#a67c00;">🟡</span>
+                    </div>
+                    
+                    <!-- Дообследование (ЦП 95,0%) -->
+                    <div style="display:flex; align-items:center; gap:8px; margin-top:2px;">
+                        <span style="font-size:11px; font-weight:500; color:#1e3d5e; min-width:80px;">Дообсл. (ЦП 95,0%)</span>
+                        <div style="flex:1; height:8px; background:#e8eef6; border-radius:6px; overflow:hidden;">
+                            <div style="height:100%; width:96%; background:#1d9e4a; border-radius:6px;"></div>
+                        </div>
+                        <span style="font-weight:600; font-size:12px; color:#0a2647; min-width:40px; text-align:right;">96%</span>
+                        <span style="font-size:11px; color:#17a84c;">✅</span>
+                    </div>
+                    
                     <button onclick="openReport('Поликлиника №4')" style="margin-top:10px; background:#0a2647; color:white; border:none; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; transition:0.15s; align-self:flex-start;">
                         📄 Подробнее
                     </button>
@@ -671,7 +807,6 @@
                 <span style="color:#b33a34;">▼ отставание 13,5%</span>
             </div>
         </div>
-
         <!-- ============================================================ -->
         <!-- РАЗДЕЛ I. ФЛГ-обследование (15+) – 7 КАРТОЧЕК -->
         <!-- ============================================================ -->
